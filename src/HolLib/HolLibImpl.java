@@ -15,21 +15,21 @@ import application.model.DataItem;
 
 public class HolLibImpl implements HolLibIF {
 	
-	private static  Map<String, Color> colorMap = new HashMap<>();
+	private static  Map<String, NodeColor> colorMap = new HashMap<>();
 	
 	ArrayList<EntryData> entries = new ArrayList<>();
 	
 	ArrayList<DataItem> dataItems;
 	
 	public HolLibImpl() {
-		colorMap.put("000000", Color.Black);
-		colorMap.put("0000ff", Color.Blue);
-		colorMap.put("00ffff", Color.Cyan);
-		colorMap.put("00ff00", Color.Green);
-		colorMap.put("ff00ff", Color.Magenta);
-		colorMap.put("ff0000", Color.Red);
-		colorMap.put("ffffff", Color.White);
-		colorMap.put("ffff00", Color.Yellow);
+		colorMap.put("000000", NodeColor.Black);
+		colorMap.put("0000ff", NodeColor.Blue);
+		colorMap.put("00ffff", NodeColor.Cyan);
+		colorMap.put("00ff00", NodeColor.Green);
+		colorMap.put("ff00ff", NodeColor.Magenta);
+		colorMap.put("ff0000", NodeColor.Red);
+		colorMap.put("ffffff", NodeColor.White);
+		colorMap.put("ffff00", NodeColor.Yellow);
 	}
 
 	@Override
@@ -119,7 +119,7 @@ public class HolLibImpl implements HolLibIF {
 		}
 		else
 		{
-			di.setItemColor(Color.Black);
+			di.setItemColor(NodeColor.Black);
 		}
 		System.out.println(split);
 		return di;

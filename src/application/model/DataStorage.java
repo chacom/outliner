@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import HolLib.Color;
+import HolLib.NodeColor;
 
 public class DataStorage {
 
@@ -15,7 +15,7 @@ public class DataStorage {
 	ArrayList<ListChangeListener> listeners = new ArrayList<>();
 
 	public DataStorage() {
-		nodeList.add(new DataItem("root", Color.Black, ""));
+		nodeList.add(new DataItem("root", NodeColor.Black, ""));
 
 		nodeList.get(0).setItemId(0);
 	}

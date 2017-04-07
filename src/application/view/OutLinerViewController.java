@@ -2,6 +2,7 @@ package application.view;
 
 import java.util.Optional;
 
+import HolLib.NodeColor;
 import application.MainApp;
 import application.model.ChangeType;
 import application.model.DataItem;
@@ -17,6 +18,7 @@ import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 
@@ -40,12 +42,59 @@ public class OutLinerViewController implements ListChangeListener {
 		
 		System.out.println("Initialize");
 		root = new TreeItem<ExtTreeItem>();
-		root.setValue(new ExtTreeItem("myRoot", 0,0));
+		root.setValue(new ExtTreeItem("myRoot", 0,0,NodeColor.Black));
 		treeView.setRoot(root);
 		lastItem = root;
 		textBox.setText("bla");
 		
+		treeView.setCellFactory(tv ->  new TreeCell<ExtTreeItem>() {
+		    @Override
+		    public void updateItem(ExtTreeItem item, boolean empty) {
+		        super.updateItem(item, empty);
+		        if (empty) {
+		            setText("");
+		        } else {
+		            setText(item.toString()); // appropriate text for item
+		            setTextFill(getTitleColor(item.getColor()));
+		        }
+		    }
+		});
 		
+	}
+	
+	Color getTitleColor(NodeColor color){
+		Color funcRes = Color.BLACK;
+		switch(color){
+			case Black:
+				funcRes = Color.BLACK;
+				break;
+			case Blue:
+				funcRes = Color.BLUE;
+				break;
+			case Cyan:
+				funcRes = Color.CYAN;
+				break;
+			case Green:
+				funcRes = Color.GREEN;
+				break;
+			case Magenta:
+				funcRes = Color.MAGENTA;
+				break;
+			case Red:
+				funcRes = Color.RED;
+				break;
+			case White:
+				funcRes = Color.WHITE;
+				break;
+			case Yellow:
+				funcRes = Color.YELLOW;
+				break;
+			default:
+				funcRes = Color.BLACK;
+				break;
+		}
+		
+		return funcRes;
 	}
 	
 	@FXML
@@ -71,7 +120,7 @@ public class OutLinerViewController implements ListChangeListener {
 		
 		if(parentId == 0)
 		{
-			ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel());
+			ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel(),item.getItemColor());
 			TreeItem<ExtTreeItem> treeItem = new TreeItem<ExtTreeItem>(extTreeItem);
 
 			root.getChildren().add(treeItem);
@@ -91,7 +140,7 @@ public class OutLinerViewController implements ListChangeListener {
 			}
 		}
 		else {
-			ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel());
+			ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel(),item.getItemColor());
 			TreeItem<ExtTreeItem> newItem = new TreeItem<ExtTreeItem>(extTreeItem);
 			treeItem.getChildren().add(newItem);
 		}
@@ -101,7 +150,8 @@ public class OutLinerViewController implements ListChangeListener {
 		
 		int currLevel = lastItem.getValue().getLevel();
 		
-		ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel());
+	
+		ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel(),item.getItemColor());
 		TreeItem<ExtTreeItem> newItem = new TreeItem<ExtTreeItem>(extTreeItem);
 		
 		if(currLevel == item.getItemLevel()){

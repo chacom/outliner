@@ -1,10 +1,10 @@
 package application.model;
 
-import HolLib.Color;
+import HolLib.NodeColor;
 
 public class NodeInfo {
 	String title;
-	Color  itemColor;
+	NodeColor  itemColor;
 	int	   nodeCnt;
 	
 	public String getTitle() {
@@ -13,10 +13,10 @@ public class NodeInfo {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public Color getItemColor() {
+	public NodeColor getItemColor() {
 		return itemColor;
 	}
-	public void setItemColor(Color itemColor) {
+	public void setItemColor(NodeColor itemColor) {
 		this.itemColor = itemColor;
 	}
 	public int getNodeCnt() {

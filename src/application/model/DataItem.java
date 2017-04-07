@@ -1,6 +1,6 @@
 package application.model;
 
-import HolLib.Color;
+import HolLib.NodeColor;
 
 public class DataItem extends NodeInfo{
 	String itemText;
@@ -8,7 +8,7 @@ public class DataItem extends NodeInfo{
 	int itemId;
 	
 	
-	public DataItem(String title, Color color, String text) {
+	public DataItem(String title, NodeColor color, String text) {
 		this.itemColor = color;
 		this.title = title;
 		this.itemText = text;

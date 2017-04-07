@@ -1,6 +1,6 @@
 package HolLib;
 
-public enum Color {
+public enum NodeColor {
 	Black,
 	White,
 	Yellow,
