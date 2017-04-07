@@ -22,9 +22,22 @@ public class DataStorage {
 
 	public void addChild(DataItem node) {
 
+		node.itemId = node.title.hashCode();
 		nodeList.add(node);
 		for(ListChangeListener listener : listeners){
-			listener.onChange(ChangeType.Add, node);
+			listener.onChange(ChangeType.Add, node, 0);
+		}
+
+	}
+	
+	public void addChild(DataItem node, int parentIdx) {
+		
+		node.itemId = node.title.hashCode();
+		nodeList.add(parentIdx + 1, node);
+		int parentId = nodeList.get(parentIdx).itemId;
+		
+		for(ListChangeListener listener : listeners){
+			listener.onChange(ChangeType.AddToPresent, node, parentId);
 		}
 
 	}
@@ -61,6 +74,64 @@ public class DataStorage {
 	
 	public void addListener(ListChangeListener currListener){
 		listeners.add(currListener);
+	}
+	
+	public void modifyText(int nodeId, String newText){
+		for(DataItem item : nodeList){
+			if(item.getItemId() == nodeId){
+				item.itemText = newText;
+			}
+		}
+	}
+	
+	public void modifyTitle(int nodeId, String title, NodeColor currColor){
+		for(DataItem item : nodeList){
+			if(item.getItemId() == nodeId){
+				item.title = title;
+				item.itemColor = currColor;
+			}
+		}
+	}
+	
+	public void removeNode(int nodeId)
+	{	
+		Integer searchIdx = null;
+		for(int idx = 0; idx < nodeList.size();idx++)
+		{
+			if(nodeList.get(idx).getItemId() == nodeId){
+				searchIdx = idx;
+				break;
+			}
+		}
+		
+		if(searchIdx != null){
+			DataItem temp = nodeList.get(searchIdx);
+			nodeList.remove(searchIdx);
+			
+			for(ListChangeListener listener : listeners){
+				listener.onChange(ChangeType.Remove, temp, 0);
+			}
+		}
+		
+	}
+	
+	public void addNewNode(String title, int parentId){
+		
+		DataItem item = new DataItem(title, NodeColor.Black, "");
+		
+		Integer searchIdx = null;
+		for(int idx = 0; idx < nodeList.size();idx++)
+		{
+			if(nodeList.get(idx).getItemId() == parentId){
+				searchIdx = idx;
+				break;
+			}
+		}
+		
+		
+		addChild(item,searchIdx);
+
+		
 	}
 
 }

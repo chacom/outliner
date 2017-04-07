@@ -30,6 +30,10 @@ public class ExtTreeItem {
 		return level;
 	}
 	
+	public void setColor(NodeColor color) {
+		this.color = color;
+	}
+
 	public NodeColor getColor()
 	{
 		return color;

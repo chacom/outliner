@@ -2,6 +2,8 @@ package application.view;
 
 import java.util.Optional;
 
+import com.sun.java.swing.plaf.motif.MotifBorders.FocusBorder;
+
 import HolLib.NodeColor;
 import application.MainApp;
 import application.model.ChangeType;
@@ -11,8 +13,11 @@ import application.model.ExtTreeItem;
 import application.model.ListChangeListener;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.control.ContextMenu;
+import javafx.scene.control.ContextMenuBuilder;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
@@ -113,6 +118,83 @@ public class OutLinerViewController implements ListChangeListener {
 	    }
 	}
 	
+	@FXML
+	private void requestContextMenu(ActionEvent event)
+	{
+		System.out.println("requestContextMenu");
+	}
+	
+	@FXML
+	private void setColorBlack(ActionEvent event){
+		generalColorSetting(event,NodeColor.Black);
+	}
+	
+	@FXML
+	private void setColorWhite(ActionEvent event){
+		generalColorSetting(event,NodeColor.White);
+	}
+
+	@FXML
+	private void setColorYellow(ActionEvent event){
+		generalColorSetting(event,NodeColor.Yellow);
+	}
+
+	@FXML
+	private void setColorGreen(ActionEvent event){
+		generalColorSetting(event,NodeColor.Green);
+	}
+
+	@FXML
+	private void setColorBlue(ActionEvent event){
+		generalColorSetting(event,NodeColor.Blue);
+	}
+
+	@FXML
+	private void setColorRed(ActionEvent event){
+		generalColorSetting(event,NodeColor.Red);
+	}
+
+	@FXML
+	private void setColorCyan(ActionEvent event){
+		generalColorSetting(event,NodeColor.Cyan);
+	}
+
+	@FXML
+	private void setColorMagenta(ActionEvent event){
+		generalColorSetting(event,NodeColor.Magenta);
+	}
+	
+	
+	@FXML
+	private void addNodeByUser(ActionEvent event){
+		
+		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
+		int parentId = currItem.getValue().getId();
+		mainApp.getDataStorage().addNewNode("Dummy", parentId);
+	}
+	
+	@FXML
+	private void removeNode(ActionEvent event){
+		
+		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
+		
+		int nodeId = currItem.getValue().getId();
+		mainApp.getDataStorage().removeNode(nodeId);
+	}
+	
+	private void generalColorSetting(ActionEvent event, NodeColor currColor)
+	{
+		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
+		ExtTreeItem value = currItem.getValue();
+		value.setColor(currColor);
+		currItem.setValue(value);
+		treeView.refresh();
+		System.out.println("try to set color: " + currColor.toString());
+	}
+	
+	
+	
+	
 	public void addNode(DataItem item, int parentId)
 	{
 		
@@ -191,6 +273,24 @@ public class OutLinerViewController implements ListChangeListener {
 		}
 	}
 	
+	private  TreeItem<ExtTreeItem> searchTreeItem(TreeItem<ExtTreeItem> baseItem, int nodeId)
+	{
+		TreeItem<ExtTreeItem> funcRes = null;
+		
+		if(baseItem.getValue().getId() != nodeId){
+			for (TreeItem<ExtTreeItem> item : baseItem.getChildren()){
+				funcRes = searchTreeItem(item, nodeId);
+				if(funcRes != null){
+					return funcRes;
+				}
+			}
+		}
+		else{
+			return baseItem;
+		}
+		
+		return funcRes;
+	}
 	
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
@@ -198,11 +298,32 @@ public class OutLinerViewController implements ListChangeListener {
 	}
 
 	@Override
-	public void onChange(ChangeType type, DataItem item) {
+	public void onChange(ChangeType type, DataItem item, int extInfo) {
 		if(type == ChangeType.Add)
 		{
 			addNodeWithLogic(item);
 		}
+		
+		if(type == ChangeType.AddToPresent)
+		{
+			int tempId = extInfo;
+			TreeItem<ExtTreeItem> searchItem = searchTreeItem(root,tempId);
+			
+			int parentId = searchItem.getValue().getId();
+			addNode(item, parentId);
+		}
+		
+		if(type == ChangeType.Remove)
+		{
+			TreeItem<ExtTreeItem> foundItem = searchTreeItem(root,item.getItemId());
+			
+			if(foundItem != null){
+				TreeItem<ExtTreeItem> parent = foundItem.getParent();
+				parent.getChildren().remove(foundItem);
+			}
+		}
+		
+		treeView.refresh();
 		
 	}
 }
