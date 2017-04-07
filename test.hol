@@ -1,0 +1,1215 @@
+VERSION=2.0
+HM:BACKGROUND_COLOR=cccccc
+
+.Jujutsu Prüfungsprogramm 1. Dan	0,,0,0,1	rsv,10,-204,0,16,ffffff,0000ff,000000
+3. Komplexaufgabe:      
+Atemi Wurf Kontrolltechnik
+
+4. Bodentechnik:          
+3x Haltetechnik nach Befreiungstechnik des Gegners
+
+5. Abwehrtechniken:     
+Abwehrfolge im Dreierkontakt gegen unterschiedliche Atemiangriffe
+
+Ju-Jutsu in Kombination
+5. Abwehrtechniken
+3x Abwehrtechnik mit den Ellenbogen
+
+6. Atemitechniken         
+1x Handinnenkantenschlag
+4x Ellenbogentechnik
+1x weitere Atemitechnik
+
+7.Würge und Nerventechnik          
+2x Würgetechnik mit den Beinen oder Füßen
+
+8. Sicherungstechnik:    
+1xKombinierte Festlegetechnik mindestens eine weitere im Technikprogramm
+
+9. Hebeltechnik:            
+1x Genickhebel
+3x Armstreckhebel im Stand
+3x Armstreckhebel bei gegnerischer Bodenlage
+
+10. Wurftechniken:        
+1x Schleuderwurf
+2x Ausheber
+2x Selbstfallwurf
+1x weitere Wurftechnik
+Ende Techniken in Kombination
+
+11. Stock:                     8x Stockabwehr mit waffenloser Folgetechnik
+12. andere Waffe:         5x Messerabwehr mit Entwaffnungstechnik
+
+13. Weiterführungs-       
+technik                          
+3x Weiterführung von Hebeltechnik
+3x Weiterführung von Wurftechnik
+2x Weiterführung von Würgetechnik
+
+14.Gegentechnik:          
+3x Gegentechnik gegen Hebeltechnik                                      
+3x Gegentechnik gegen Wurftechnik                              
+2x Gegentechnik gegen Würgetechnik
+
+15. freie 
+Selbstverteidigung:         
+Verteidigung gegen zwei unbewaffnete Angreifer (angesagt und frei)
+
+16. freie 
+Anwendungsformen:      
+freie Auseinandersetzung mit Ju-Jutsu Techniken
+
+..Komplexaufgabe	0,,0,0,2	rsv,-217,-53,0,16,ffffff,0000ff,000000
+Atemi - Wurf - Kontrolltechnik
+
+Kombination 1:
+Fussstoß vorwarts
+Fauststoß
+Fauststoß
+Schwinger
+Arn fischen
+Schulterwurf
+Kontrolle des Gegners
+
+Kombination 2:
+Fauststoß
+Fauststoß
+Handinnenkantenschlag
+Selbstfallwurf
+Kontrolle in Kreuzpositon
+
+Kombination 3:
+Fauststoß
+Fauststoß
+Fauststoß
+Halbkreisfusstritt rückwärts
+um Schulter fassen
+Beinrollwurf nach vorn
+Beinhebel
+
+
+..Bodentechniken	0,,0,0,3	rsv,-186,36,0,16,ffffff,0000ff,000000
+...3xHaltetechnik nach Befreiungstechnik des Gegners	0,,0,0,4	rsv,-302,-1,0,16,ffffff,0000ff,000000
+..Abwehrtechniken	0,,0,0,5	rsv,-212,103,0,16,ffffff,0000ff,000000
+Abwehrfolge im Dreierkontakt gegen unterschiedliche Atemiangriffe.
+
+..Techniken in Kombination 	0,,0,0,6	rsv,149,-151,0,16,ffffff,0000ff,000000
+...Abwehrtechniken	0,0000ff,0,0,7	rsv,285,-359,0,16,ffffff,0000ff,000000
+....3xAbwehr mit dem Ellenbogen	0,0000ff,0,0,8	rsv,162,-65,0,16,ffffff,0000ff,000000
+.....Ellenbogenstoß abwärts 	0,00ff00,0,0,9	rsv,267,-117,0,16,ffffff,0000ff,000000
+A1 Fussstoß seitwärts 
+V1 EBSA
+V2 Rückriss oder Lowkick mit zu Boden bringen
+V3 fauststoß zum Kopf des Gegners
+
+A2 Aufwärtshagen mit rechts
+V1 EBSA
+V2 Kniestoß zum Magen 
+V3 Schleuderwurf
+
+A3 Klinsch + Knieschläge zum Magen
+V1 EBSA auf Beine
+V2 Doppelter Fauststoß zur Brust um Gegner auf Distanz zu bringen 
+V3 Fussstoß seitwärts oder andere Tritttechnik
+
+.....Ellenbogenschlag vorwärts 	0,ff00ff,0,0,10	rsv,263,-59,0,16,ffffff,0000ff,000000
+
+A1 Innenhandkantenschlag mit rechts
+V1 EBSV
+V2 Handkantenschlag in Rippen
+V3 Handhebel nach oben (Name?)
+V4 Fussstoß seitwärts mit links
+
+A2 Hammerschlag von oben mit rechts
+V1 EBSV
+V2 Umleiten + Kniestoß
+V3 Schleuderwurf mit dem linken Bein
+
+A3 Fauststoß vorwärts
+V1 EBSV
+V2 Dreieckswürge
+V3 Kontrolle des Gegners am Boden
+
+.....Ellenbogenstoß nach innen	0,0000ff,0,0,11	rsv,268,17,0,16,ffffff,0000ff,000000
+A1 Rückhandschlag mit rechts
+V1 EBSNI + Greifen mit links
+V2 Kipphandhebel
+V3 Abschuss des Gegners
+
+A2 Schwinger mit rechts
+V1 EBSNI + Greifen mit links
+V2 Schlag in Genitalien mit rechts
+V3 Schulterwurf
+
+A3 Halbkreisfusstritt zum Kopf
+V1 EBSNI auf Bein
+V2 Schlag in Genitalien
+V3 Fußstoß seitwärts
+
+...Atemitechniken	0,ff0000,0,0,12	rsv,295,-158,0,16,ffffff,0000ff,000000
+....1xInnenhandkantenschlag	0,0000ff,0,0,13	rsv,170,-100,0,16,ffffff,0000ff,000000
+A1 Fussstoß vorwärts mit rechts
+V1 Handinnenkantenschlag mit rechts
+V2 Beinrollwurf
+V3 Beinhebel mit linken Bein
+V4 Anweisungen an Gegner
+
+A2 Beidhändiges Würgen von vorn
+V1 linke Hand sichert Hand
+V2 Handinnenkantenschlag in Genitalien
+V3 Z-Hebel und zu Boden bringen
+
+A3 Körperumklammerung von vorn über den Armen
+V1 Platz schaffen und Handinnenkantenschlag in Genitalien
+V2 Druck auf Leiste
+V3 Kniestoß oder Fußstoß nach Distanz
+
+....4xEllenbogentechnik	0,ff00ff,0,0,14	rsv,219,-5,0,16,ffffff,0000ff,000000
+.....Ellenbogenschlag vorwärts	0,ff00ff,0,0,15	rsv,202,-115,0,16,ffffff,0000ff,000000
+A1 Griff im Rever mit Schwinger
+V1 Arm sicher und Angriff blocken
+V2 EBSV zum Kopf mit Hand als Gegenpol
+V3 Kniestoß zum Kopf
+
+A2 Fauststoß
+V1 3er Kontakt
+V2 EBSV
+V3 Ausheber seitwärts
+
+A3 Ansatz beidhändige Würge
+V1 Ansatz nach außen fegen
+V2 Griff am Kopf + EBSV
+V3 Ausheber seitwärts
+
+.....Ellenbogenstoß seitwärts	0,0000ff,0,0,16	rsv,204,-58,0,16,ffffff,0000ff,000000
+A1 Würge von der Seite
+V1 Schlag in Genitalien
+V2 EBSS
+V3 Schulterzug
+
+A2 Schwitzkasten von der Seite mit links
+V1 Schlag in Genitalien
+V2 Griff mit Schritt nach vorn lösen
+V3 EBSS
+V4 Hüftfegen
+
+A3 Griff an rechter Schulter von der Seite mit rechts
+V1 Hand sichern und Schlag in Genitalien
+V2 EBSS
+V3 Fußstoß seitwärts
+
+.....Ellenbogenschlag abwärts	0,0000ff,0,0,17	rsv,202,56,0,16,ffffff,0000ff,000000
+A1 Rückhandschlag
+V1 umleiten
+V2 Knieschlag
+V3 EBSA
+
+A2 Fauststoß mit rechts und AW
+V1 3er Kontakt innen + Schlag zum Hals
+V2 Kniestoß zum Magen
+V3 EBSA 
+
+A3 Griff diagonales Handgelenk
+V1 Griff lösen und nach außen umleiten
+V2 Kniestoß zum Magen
+V3 EBSA 
+
+.....Ellenbogenstoß rückwärts	0,ff00ff,0,0,18	rsv,207,-4,0,16,ffffff,0000ff,000000
+A1 Körperumklammerung von hinten über dem Arm
+V1 Fußstoß abwärts
+V2 Schlag in Genitalien
+V3 EBSR
+V4 Wurf?
+
+A2 Griff von hinten an der Schulter mit rechts
+V1 Hand sichern +  Schlag in Genitalien
+V2 EBSR
+V3 Seitenriss
+V4 Kontrolle des Gegners
+
+A3 Griff diagonales Handgelenk
+V1 Griff lösen und Armstreckhebel über die Schulter
+V2 EBSR
+V3 Fußstoß rückwärts
+
+....1x weitere Atemitechnik	0,ff0000,0,0,19	rsv,238,120,1,16,ffffff,0000ff,000000
+.....Handaußenkantenschlag	0,0000ff,0,0,20	rsv,243,-179,0,16,ffffff,0000ff,000000
+A1 Rückhandschlag mit rechts
+V1 Aufnehmen und umleiten
+V1 Greifen + Handaußenkantenschlag
+V2 Schulterwurf
+V3 Gegner festlegen
+
+A2 Beidhändige Würge von vorn
+V1 Griff lockern durch Drehung im Oberkörper + Handaußenkantenschlag zum Oberkörper
+V2 Schulterwurf
+V3 Gegner festlegen
+
+A3 Fauststoß vorwärts
+V1 3er Kontakt + Handaußenkantenschlag
+V2 Hüftfegen
+V3 Gegner festlegen
+
+.....Lowkick	0,,0,0,21	rsv,292,-8,0,16,ffffff,0000ff,000000
+A1 Fussstoß vorwärts
+V1 Unterarmblock nach innen
+V2 Lowkick auf Oberschenkel
+V3 Kettenfauststoß oder Fussstoß
+
+A2 Schwinger mit rechts
+V1 3er Kontakt
+V2 Lowkick auf Oberschenkel
+V3 Kettenfauststoß oder Fussstoß
+
+A3 Griff diagonales Handgelenk
+V1 Griff lösen und umgreifen
+V2 Lowkick auf Oberschenkel
+V3 Schulterwurf
+
+.....Fussstoß abwärts	0,0000ff,0,0,22	rsv,172,76,0,16,ffffff,0000ff,000000
+A1 Schwinger rechts, links
+V1 Angriffe blocken
+V2 Pressluftschlag
+V3 Beinheber
+V3 Fussstoß abwärts
+
+A2 Würge von der Seite
+V1 Hand sichern und Schlag in die Genitalien
+V2 Schulterwurf
+V3 Fussstoß abwärts
+
+A3 Griff ins Rever mit Schwinger
+V1 Hand sichern und Block
+V2 Pressluftschlag
+V3 Doppelhandsichel
+V4 Fussstoß abwärts
+.....Fussstoß seitwärts	0,0000ff,0,0,23	rsv,133,123,0,16,ffffff,0000ff,000000
+A1 Griff diagonales Handgelenk
+V1 Griff lösen und umlenken
+V2 Halbkreisfusstritt zum Magen
+V3 Fussstoß seitwärts
+
+A2 Schwinger mit rechts
+V1 3er Kontakt und umlenken
+V2 Fussstoß seitwärts 
+V3 Halbkreisfusstritt zum Kopf
+
+A3 Fauststoß
+V1 3er Kontakt innen
+V2 Halbkreisfusstritt zum Ziel
+V3 Fussstoß seitwärts
+
+.....Halbkreisfusstritt	0,0000ff,0,0,24	rsv,91,156,0,16,ffffff,0000ff,000000
+A1 Griff diagonales Handgelenk
+V1 Griff lösen und umlenken
+V2 Halbkreisfusstritt zum Magen
+V3 Fussstoß seitwärts
+
+A2 Schwinger mit rechts
+V1 3er Kontakt und umlenken
+V2 Fussstoß seitwärts 
+V3 Halbkreisfusstritt zum Kopf
+
+A3 Fauststoß
+V1 3er Kontakt innen
+V2 Halbkreisfusstritt zum Ziel
+V3 Fussstoß seitwärts
+
+.....Handballentechnik	0,,0,0,25	rsv,352,-72,0,16,ffffff,0000ff,000000
+A1 Beidhändiges Würgen von vorn
+V1 Hand sichern mit links + Handballenschlag mit rechts zum Solarplexus
+V2 Z-Hebel
+V3 Armstreckhebel am Boden
+
+A2 Schwinger mit rechts
+V1 3er Kontakt oben
+V2 Handballenschlag zum Solarplexus
+V3 Rückriss
+
+A3 Griff ins Rever mit Schwinger
+V1 Hand sichern und Block
+V2 Handballenschlag zum Solarplexus
+V3 Z-Hebel
+V4 Kontrolle des Gegners
+
+.....Kettenfauststoß	0,,0,0,26	rsv,355,96,0,16,ffffff,0000ff,000000
+A1 Rückhandschlag mit rechts
+V1 Angriff umleiten
+V2 Kettenfauststoß zum Kopf
+V3 Lowkick
+
+A2 beidhändiges Würgen von vorn
+V1 Griff lösen
+V2 Z-Hebel
+V3 Kettenfauststoß
+
+A3 Fauststoß mit rechts
+V1 3er Kontakt innen + Handaußenkantenschlag
+V2 Kettenfauststoß
+V3 Fusstechnik
+
+
+
+.....Faustschlag	0,,0,0,27	rsv,258,161,0,16,ffffff,0000ff,000000
+A1 Würge von der Seite
+V1 Hammerschlag in Genitalien
+V2 Schulterwurf
+V3 Gegner kontrollieren
+
+A2 Schlag von oben
+V1 3er Kontakt innen
+V2 Hammerschlag in Genitalien
+V3 Fussstoß seitwärts
+
+A3 Fauststoß mit rechts
+V1 3er Kontakt innen
+V2 Hammerschlag in Genitalien
+V3 Fussstoß seitwärts
+
+
+.....Pressluftschlag	0,,0,0,28	rsv,177,225,0,16,ffffff,0000ff,000000
+A1 Schwinger rechts, links
+V1 Block rechts
+V2 Block links
+V3 Griff am Kopf und Kopfstoß
+V4 Pressluftschlag
+V5 Kniestoß gesprungen
+
+A2 Beidhändiges Würgen von vorn
+V1 Griff sprengen
+V2 Pressluftschlag
+V3 Kniestoß zum Bauch
+
+A3 Fussstoß vorwärts
+V1 Block mit links nach innen
+V2 Pressluftschlag von hinten
+V3 Rückriss
+
+.....Knietechnik	0,,0,0,29	rsv,105,262,0,16,ffffff,0000ff,000000
+A1 Schwinger rechts, links
+V1 Block rechts
+V2 Block links
+V3 Griff am Kopf und Kopfstoß
+V4 Pressluftschlag
+V5 Kniestoß gesprungen
+
+A2 Beidhändiges Würgen von vorn
+V1 Kniestoß zum Bauch
+V2 Pressluftschlag
+V3 Fußstoß vorwärts
+
+A3 Rückhandschlag mit rechts
+V1 Angriff aufnehmen und umleiten
+V2 Kniestoß
+V3 Genickhebel
+V4 Fauststoß zum Kopf
+
+.....Kopfschlag	0,,0,0,30	rsv,436,-134,0,16,ffffff,0000ff,000000
+A1 Würgen von hinten
+V1 Arm sichern
+V2 Kopfschlag rückwärts
+V3 durch rausdrehen aus Würge lösen
+V4 Armsteckhebel zum Boden
+
+A2 Körperumklammerung von hinten über den Arm
+V1 Kopfschlag rückwärts
+V2 Ellenbogenstoß rückwärts
+V3 Beindurchzug
+V4 Fussstoß abwärts
+
+A3 Körperumklammerung von hinten unter dem Arm
+V1 Kopfschlag rückwärts
+V2 Ellenbogenschläge rückwärts
+V3 Genickhebel
+
+
+
+.....Kopfstoß	0,,0,0,31	rsv,420,43,0,16,ffffff,0000ff,000000
+A1 Schwinger rechts, links
+V1 Block mit rechts
+V2 Block mit links
+V3 Griff am Kopf und Kopfstoß
+V4 Kniestoß
+
+A2 Würge von vorn
+V1 Pressluftschlag
+V2 Griff am Kopf und Kopfstoß
+V3 Doppelhandsichel
+
+A3 Fauststoß mit rechts
+V1 3er Kontakt innen
+V2 Rückhandschlag
+V3 Griff am Kopf und Kopfstoß
+V4 Kniestoß
+
+
+.....Fingerstich	0,,0,0,32	rsv,375,166,0,16,ffffff,0000ff,000000
+A1 Schwinger rechts, links
+V1 Angriff blocken
+V2 Fingerstich zum Hals
+V3 Fußstoß vorwärts gesprungen oder Knie
+
+A2 Würgen von vorn
+V1 Arm sichern
+V2 Fingerstich zum Hals
+V3 Z-Hebel
+V4 Armstreckhebel zum Boden
+V5 Gegner aufheben
+
+A3 Fauststoß mit rechts
+V1 3er Kontakt innen + Handkantenschlag
+V2 Fingerstich zum Hals
+V3 Außensichel
+
+.....Fußtechnik vorwärts	0,,0,0,33	rsv,265,269,0,16,ffffff,0000ff,000000
+A1 Schwinger rechts, links
+V1 Blocken der Angriffe
+V2 Fingerstich zum Hals
+V3 gesprungener Fussstoß vorwärts
+
+A2 Beidhändiges Würgen von vorn
+V1 Griff sprengen
+V2 Fingerstich zum Hals
+V3 gesprungener Fussstoß vorwärts
+
+A3 Fussstoß vorwärts mit rechts
+V1 Angriff blocken mit linken Unterarm
+V2 gesprungener Fussstoß vorwärts
+V3 Ellenbogenschlag von Distanz passt, sonst Fersenabschlag
+
+
+.....Stoppfussstoß	0,,0,0,34	rsv,179,339,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Stoppfussstoß mit links
+V2 Kettenfauststoß
+V3 gedrehter Fussstoß rückwärts
+
+A2 Griffansatz zu den Haaren
+V1 Stoppfussstoß mit links
+V2 Knietechnik
+V3 Ellenbogenschlag abwärts
+
+A3 Schlag von oben
+V1 Stoppfussstoß mit links
+V2 Kettenfauststoß
+V3 Folgetechnik nach Distanz
+...Würge und Nervendrucktechniken	0,0000ff,0,0,35	rsv,238,17,0,16,ffffff,0000ff,000000
+....2x Würge mit dem Beinen oder Füssen	0,0000ff,0,0,36	rsv,267,4,1,16,ffffff,0000ff,000000
+
+
+.....Dreieckswürge am Boden	0,0000ff,0,0,37	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Griff im Rever mit Schwinger
+V1 Kipphandhebel
+V2 Tritt in Richtung Kopf und Fuß links neben dem Kopf abstellen, Spann unter dem Kopf
+V3 links eben dem Kopf abknieen und Armstreckhebel
+V4 Griff hinter dem Hals zum eigenen Fuß
+V5 Dreieckswürge unter Verwendung des Fußes
+
+A2 Fauststoß mit rechts
+V1 3er Kontakt innen + Handaußenkantenschlag + Arm sichern
+V2 Schlag in Genitalien
+V3 Hüftfegen
+V4 Tritt in Richtung Kopf und Fuß rechts neben dem Kopf abstellen
+V5 links eben dem Kopf abknien und Armstreckhebel
+V6 Griff hinter dem Hals zum eigenen Fuß
+V7 Dreieckswürge unter Verwendung des Fußes
+
+.....Würge mit dem Spann oder Schienbein	0,0000ff,0,0,38	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Griff im Rever Ellenbogenschlag
+V1 Arm sichern und Ellenbogenangriff mit dem Unterarm umleiten
+V2 Wurf des Gegners
+V3 Seitstreckhebel
+V4 Würge mit dem Fuss beim aufstehen
+
+A2 Kurzes Würgen von der Seite
+V1 Hüftwurf
+V2 Seitstreckhebel
+V3 Würge mit dem Spann beim Aufstehen
+
+A3 Fauststoß mit rechts
+V1 3er Kontakt innen + Handaußenkantenschlag +  Arm sichern
+V2 Schlag mit rechtem Unterarm zum Kopf des Gegners
+V3 große Außensichel
+V4 Seitstreckhebel
+V5 Würge mit dem Spann beim Aufstehen
+
+...Sicherungstechnik	0,0000ff,0,0,39	rsv,287,306,0,16,ffffff,0000ff,000000
+....1x kombinierte Festlegetechnik	0,0000ff,0,0,40	rsv,180,0,1,16,ffffff,0000ff,000000
+.....Würge mit Knie und gleichzeitigem Armriegel	0,0000ff,0,0,41	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Würge von der Seite
+V1 Hand sichern und Schlag in Genitalien
+V2 Hüftwurf
+V3 Hammerschlag auf Brust
+V4 Kreuzhalte + Armhebel + Würge mit Ellenbogen
+
+A2 Griff im Rever
+V1 Arm sichern
+V2 Große Außensichel
+V3 Hammerschlag auf Brust
+V4 Kreuzhalte + Armhebel + Würge mit Ellenbogen
+
+A2 Schwinger mit rechts
+V1 Block mit Schockangriff
+V2 Hüftfegen
+V3 Hammerschlag auf Brust
+V4 Kreuzhalte + Armhebel + Würge mit Ellenbogen
+
+...Hebeltechnik	0,0000ff,0,0,42	rsv,242,407,1,16,ffffff,0000ff,000000
+....1xGenickhebel	0,0000ff,0,0,43	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+A1 Schwitzkasten von vorn
+V1 Schlag in Genitalien
+V2 rechten Arm über Gegner und Genickhebel
+V3 Abschlusstechnik
+
+.....Genickhebel bei Vorderlage des Gegners	0,0000ff,0,0,44	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+Schwinger
+Fauststoß
+Schlag von oben
+
+
+A1 Doppelhandsichel von vorn
+V1 Angriff abwehren und Stand stabilisieren
+V2 Griff am Kinn mit rechts
+V3 Gegner mit Genickhebel zu Boden bringen
+V4 Gegner am Boden kontrollieren
+
+A2 Griff im Rever
+V1 Griff lösen
+V2 Drehstreckhebel
+V3 Knieschlag zum Gegner
+V4 Griff am Kinn mit rechts
+V5 Gegner mit Genickhebel zu Boden bringen
+V6 Fauststoß zum Kopf des Gegners
+
+A3 Fauststoß mit rechts
+V1 Abwehr 3er Kontakt innen
+V2 Handkantenschlag zum Hals
+V3 Kniestoß zum Magen
+V4 Griff am Kinn mit rechts
+V5 Gegner mit Genickhebel zu Boden bringen
+V6 Gegner am Boden kontrollieren
+....3xArmstreckhebel im Stand	0,0000ff,0,0,45	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+.....Drehstreckhebel zum Boden	0,0000ff,0,0,46	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Griff am Rever mit Ellenbogenschlag
+V1 Angriff mit rechtem Arm umleiten
+V2 Handbeugehebel
+V3 Drehstreckhebel zum Boden
+V4 Gegner kontrollieren
+
+A2 Griff diagonales Handgelenk
+V1 Griff nach oben lösen
+V2 Handgelenkhebel
+V3 Drehstreckhebel zum Boden
+V4 Gegner kontrollieren
+
+A3 Rückhandschlag mit rechts
+V1 Angriff aufnehmen und umleiten
+V2 Drehstreckhebel zum Boden
+V3 Gegner kontrollieren
+.....umgekehrter Körperstreckhebel	0,0000ff,0,0,47	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Griff im Rever
+V1 Griff lösen
+V2 Gegner mit Handbeugehebel zu sich hin ziehen
+V3 UKSH
+V4 Beinrollwurf
+
+A2 Griff diagonales Handgelenk
+V1 Griff lösen und umleiten
+V2 Handgelenkhebel
+V3 Drehstreckhebel
+V3 UKSH
+V4 Reisballenwurf
+
+A3 Schlag von oben
+V1 Angriff blocken und Schocktechnik zum Oberarm mit greifen
+V2 Knieschlag zum Magen
+V3 UKSH
+V4 Kipphandhebel
+V5 Kontrolle des Gegners
+
+.....Armriegel	0,0000ff,0,0,48	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Beidhändiges Würgen von vorn
+V1 Armriegel mit links durch nach vorn schieben des linken Arms
+V3 Kniestoß
+V4 rechte Hand an Rever und mit linken Arm unter dem linken  Arm des Gegners verriegeln
+V5 Auf Knie ziehen und abtauchen und Kleiderwürge am Boden
+
+A2 Schlag von oben
+V1 Block und Schocktechnik
+V2 Armriegel
+V3 Kniestoß, Schleuderwurf
+
+A3 Körperumklammerung von vorn unter dem Armen
+V1 Pressluftschlag
+V2 Nervendruck Hals
+V3 Armriegel
+V4 Außensichel
+V5 Handbeugehebel
+
+....3xArmstreckhebel am Boden	0,0000ff,0,0,49	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+
+Idee: Seitstreckhebel über Kipphandhebel
+
+.....Seitstreckhebel	0,0000ff,0,0,50	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Griff ins Rever mit Schwinger
+V1 Schulterwurf
+V2 Hand sichern und Schlag in den Magen
+V3 Seitstreckhebel
+
+A2 Griff diagonales Handgelenk
+V1 Griff lösen 
+V2 Kipphandhebel
+V3 Seitstreckhebel
+V4 gesichert aufstehen
+
+A3 Schwinger mit rechts
+V1 3er Kontakt
+V2 Kipphandhebel
+V3 Seitstreckhebel
+V4 gesichert aufstehen
+.....Armstreckhebel am Boden bei Rückenlage	0,0000ff,0,0,51	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Rückhandschlag mit rechts
+V1 Angriff umleiten
+V2 Knieschlag zum Magen des Gegners
+V3 Außensichel
+V3 Armstreckhebel über dem Kopf des Gegners
+
+A2 Schwinger mit rechts
+V1 3er Kontakt innen blocken
+V2 Schlag in Genitalien
+V3 Schulterwurf
+V4 Armstreckhebel über Kopf vom Gegner
+
+A3 Fauststoß mit rechts
+V1 3er Kontakt innen + Handkantenschlag + Griff
+V2 Außensichel
+V3 Armstreckhebel über Kopf vom Gegner
+
+.....Armriegel von Innen am Boden	0,0000ff,0,0,52	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Fauststoß
+V1 3er Kontakt innen + Handkantenschlag + Griff
+V2 Schulterwurf
+V3 Armriegel von innen am Boden mit rechtem Arm
+V4 gesichert aufstehen
+
+A2 Schwinger mit rechts
+V1 Block mit Schocktechnik
+V2 Außensichel
+V3 Armriegel von innen am Boden mit rechtem Arm
+V4 gesichert aufstehen
+
+A3 Griff Schulter und Schwinger
+V1 Hand sichern 
+V2 Beinstellen mit Nervendruck
+V3 Armriegel von innen am  Boden
+V4 gesichert aufstehen
+
+...Wurftechnik	0,,0,0,53	rsv,85,-366,1,16,ffffff,0000ff,000000
+....1xSchleuderwurf	0,ff00ff,0,0,54	rsv,-13,-149,0,16,ffffff,0000ff,000000
+A1 Schlag von oben
+V1 Angriff mit Schocktechnik blocken + Arm sichern
+V2 Handkantenschlag zum Hals
+V3 Knieschlag zum Gegner
+V4 Schleuderwurf
+V5 Fauststoß zum Kopf des Gegners
+
+A2 Griff diagonales Handgelenk
+V1 Griff lösen und Arm mit rechts halten
+V2 Arm nach außen umleiten
+V3 Knieschlag zum Gegner
+V4 Schleuderwurf
+V5 Fauststoß zum Kopf des Gegners
+
+A3 Handinnenkantenschlag um Hals
+V1 Angriff mit Schocktechnik blocken + Arm sichern
+V2 Schlag Genitalien
+V3 Knieschlag
+V4 Schleuderwurf
+V5 Fauststoß zum Kopf des Gegners
+....2xAusheber	0,ff0000,0,0,55	rsv,71,-132,1,16,ffffff,0000ff,000000
+-Ausheber von außen
+-Handrad
+-Umklammerungswurf
+-Ausheber an den Beinen
+-Ausheber von Innen
+-Wechselhüftwurf
+-Schulterrad
+
+A1 Schwinger mit rechts
+V1 Durch 3er Kontakt aufnehmen
+V2 Ausheber
+V3 ???
+
+A1 Halbkreisfusstritt mit rechts
+V1 Block mit links und Bein fangen
+V2 Ausheber
+V3 ???
+
+.....Ausheber von Außen	0,0000ff,0,0,56	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Glinsch von vorn + Kniestöße
+V1 Kniestöße abwehren
+V2 linken haltenden Arm kurz nach oben schieben und nah an den Gegner
+V3 Ausheber von der Seite
+V4 Kontrolle Gegner
+
+A2 Schwinger mit rechts
+V1 3er Kontakt oben
+V2 Handballenschlag zum Oberkörper
+V3 Griff mit rechts zwischen die Beine und Ausheber
+V4 Gegner abschiessen
+
+A3 Rückhandschlag mit rechts
+V1 Block
+V2 Handballenschlag zum Oberkörper
+V3 Griff mit rechts zwischen die Beine und Ausheber
+V4 Gegner abschiessen
+
+
+
+.....Ausheber an den Beinen	0,ff0000,0,0,57	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schlag von oben mit links
+V1 Schlag fegen und nach rechts ausweichen
+V2 Handkantenschlag auf Rippen
+V3 Ausheber an den Beinen
+
+A2 Aufwärtshagen mit rechts
+V1 3er Kontakt
+V2 hinter Gegner bewegen
+V3 Ausheber an den Beinen
+
+A3 Schwinger mit rechts
+V1 3er Kontakt oben
+V2 hinter Gegner bewegen
+V3 Ausheber an den Beinen
+.....Handrad	0,,0,0,116	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+....2xSelbstfallwurf	0,0000ff,0,0,58	rsv,108,-86,1,16,ffffff,0000ff,000000
+.....Seitenriss	0,0000ff,0,0,59	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schlag von oben mit rechts
+V1 Arm blocken mit Schocktechnik
+V2 angreifenden Arm greifen + Seitenriss
+V3 Kontrolle des Gegners
+
+A2 Fauststoß mit rechts
+V1 3er Kontakt innen + Handkantenschlag + greifen
+V2 Seitenriss
+V3 Kontrolle des Gegners
+
+A3 Griff im Rever mit Schwinger
+V1 Hand sichern und Block
+V2 Seitenriss
+V3 Kontrolle des Gegners
+
+.....Scherenwurf nach hinten	0,0000ff,0,0,60	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Rückhandschlag mit links
+V1 Angriff blocken
+V2 Scherenwurf nach hinten
+V3 Fersenabschlag oder Beinhebel wenn möglich
+
+A2 Schlag von oben mit links
+V1 Angriff aufnehmen und umleiten
+V2 Scherenwurf nach hinten
+V3 Fersenabschlag oder Beinhebel wenn möglich
+
+A3 Fauststoß mit links
+V1 Fauststoß mit 3er Kontakt außen blocken
+V2 Scherenwurf nach hinten
+V3 Fersenabschlag oder Beinhebel wenn möglich
+
+
+....1xweitere Wurftechnik	0,,0,0,61	rsv,112,-22,1,16,ffffff,0000ff,000000
+.....Beinstellen	0,0000ff,0,0,62	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Aufwärtshagen mit rechts und AW
+V1 Angriff mit links blocken 
+V2 Beinstellen
+V3 Handbeugehebel
+
+A2 Rückhandschlag mit rechts und AW
+V1 Angriff nach unten umleiten
+V2 Beinstellen
+V3 Handbeugehebel
+
+A3 Schlag von oben
+V1 Angriff nach unten umleiten und Arm sichern 
+V2 Beinstellen
+V3 Handbeugehebel
+
+ 
+.....große Außensichel	0,0000ff,0,0,63	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Aufwärtshagen mit rechts und AW
+V1 Angriff mit links blocken 
+V2 Kniestoß zum Magen
+V3 große Außensichel
+V4 Kontrolle des Gegners mit Handbeugehebel
+
+A2 Rückhandschlag mit rechts und AW
+V1 Angriff nach unten umleiten
+V2 Kniestoß zum Magen
+V3 große Außensichel
+V4 Kontrolle des Gegners mit Handbeugehebel
+
+A3 Schlag von oben
+V1 Angriff nach unten umleiten und Arm sichern 
+V2 Kniestoß zum Magen
+V3 große Außensichel
+V4 Kontrolle des Gegners mit Handbeugehebel
+
+.....Beingreifertechnik	0,,0,0,64	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Aufwärtshagen mit rechts und AW
+V1 Angriff mit links blocken 
+V2 Beinheber von innen
+V3 Muskelquetsche am rechten Bein des Gegners im Stand
+V4 Gegner unter Muskelquetsche auf den Bauch drehen + Hebel
+
+A2 Rückhandschlag mit rechts und AW
+V1 Angriff nach unten umleiten
+V2 Beinheber von innen
+V3 Muskelquetsche am rechten Bein des Gegners im Stand
+V4 Gegner unter Muskelquetsche auf den Bauch drehen + Hebel
+
+A3 Schlag von oben
+V1 Angriff nach unten umleiten und Arm sichern 
+V2 Beinheber von innen
+V3 Muskelquetsche am rechten Bein des Gegners im Stand
+V4 Gegner unter Muskelquetsche auf den Bauch drehen + Hebel
+.....Hüftwurf	0,0000ff,0,0,65	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Block mit links und Schocktechnik zum Oberarm
+V2 Schlag in Genitalien
+V3 Hüftwurf
+V4 Gegner mit Handbeugehebel kontrollieren
+
+A2 nahes Würgen von der Seite 
+V1 Schlag in Genitalien 
+V2 Ellenbogenstoß seitwärts 
+V3 Hüftwurf 
+V4 Gegner kontrollieren mit Handbeugehebel 
+
+A3 Griff mit rechts an der rechten Schulter
+V1 kurz drehen und Griff sichern
+V2 Ellenbogenstoß rückwärts mit rechts
+V3 Hüftwurf
+V4 Fauststoß zum Kopf des Gegners
+.....Hüftrad	0,0000ff,0,0,66	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Block mit links und Schocktechnik zum Oberarm
+V2 Schlag in Genitalien
+V3 Ellenbogenstoß rückwärts
+V4 Hüftrad mit um den Kopf greifen
+V5 Gegner mit Handbeugehebel kontrollieren
+
+A2 nahes Würgen von der Seite 
+V1 Schlag in Genitalien 
+V2 Ellenbogenstoß seitwärts 
+V3 Hüftrad mit um den Kopf greifen 
+V4 Gegner kontrollieren mit Handbeugehebel 
+
+A3 Griff mit rechts an der rechten Schulter
+V1 kurz drehen und Griff sichern
+V2 Ellenbogenstoß rückwärts mit rechts
+V3 Hüftrad mit um den Kopf greifen
+V4 Fauststoß zum Kopf des Gegners
+.....Schulterwurf	0,0000ff,0,0,67	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Block mit links und Schocktechnik zum Oberarm
+V2 Schlag in Genitalien
+V3 Schulterwurf
+V4 Gegner mit Handbeugehebel kontrollieren
+
+A2 nahes Würgen von der Seite 
+V1 Schlag in Genitalien 
+V2 Ellenbogenstoß seitwärts 
+V3 Schulterwurf
+V4 Gegner kontrollieren mit Handbeugehebel 
+
+A3 Griff mit rechts an der rechten Schulter
+V1 kurz drehen und Griff sichern
+V2 Ellenbogenstoß rückwärts mit rechts
+V3 Schulterwurf
+V4 Fauststoß zum Kopf des Gegners
+
+.....Schulterzug	0,0000ff,0,0,68	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Block mit links und Schocktechnik zum Oberarm
+V2 Schlag in Genitalien
+V3 Schulterzug
+V4 Gegner mit Handbeugehebel kontrollieren
+
+A2 nahes Würgen von der Seite 
+V1 Schlag in Genitalien 
+V2 Ellenbogenstoß seitwärts 
+V3 Schulterzug 
+V4 Gegner kontrollieren mit Handbeugehebel 
+
+A3 Griff mit rechts an der rechten Schulter
+V1 kurz drehen und Griff sichern
+V2 Ellenbogenstoß rückwärts mit rechts
+V3 Schulterzug
+V4 Fauststoß zum Kopf des Gegners
+.....Hüftfegen	0,0000ff,0,0,69	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Block mit links und Schocktechnik zum Oberarm
+V2 Schlag in Genitalien
+V3 Hüftfegen
+V4 Gegner mit Handbeugehebel kontrollieren
+
+A2 nahes Würgen von der Seite 
+V1 Schlag in Genitalien 
+V2 Ellenbogenstoß seitwärts 
+V3 Hüftfegen
+V4 Gegner kontrollieren mit Handbeugehebel 
+
+A3 Griff mit rechts an der rechten Schulter
+V1 kurz drehen und Griff sichern
+V2 Ellenbogenstoß rückwärts mit rechts
+V3 Hüftfegen
+V4 Fauststoß zum Kopf des Gegners
+.....Schenkelwurf	0,0000ff,0,0,70	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Block mit links und Schocktechnik zum Oberarm
+V2 Schlag in Genitalien
+V3 Schenkelwurf 
+V4 Gegner mit Handbeugehebel kontrollieren
+
+A2 nahes Würgen von der Seite 
+V1 Schlag in Genitalien 
+V2 Ellenbogenstoß seitwärts 
+V3 Schenkelwurf
+V4 Gegner kontrollieren mit Handbeugehebel 
+
+A3 Griff mit rechts an der rechten Schulter
+V1 kurz drehen und Griff sichern
+V2 Ellenbogenstoß rückwärts mit rechts
+V3 Schenkelwurf
+V4 Fauststoß zum Kopf des Gegners
+.....große Innensichel	0,ff00ff,0,0,71	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Rückhandschlag mit rechts
+V1 Angriff nach unten umleiten
+V2 Griff um Hals und Gleichgewicht des Gegners brechen
+V3 große Innensichel
+
+A2 Schlag von oben
+V1 Angriff umleiten
+V2 Griff um Hals und Gleichgewicht des Gegners brechen
+V3 große Innensichel
+
+A3 Fauststoß vorwärts mit rechts
+V1 3er Kontakt innen
+V2 Arm sichern und Handkantenschlag zum Hals des Gegners
+V2 Gleichgewicht mit rechten Arm brechen
+V3 große Innensichel
+V4 Fußstoß 
+.....Rückriss	0,ff00ff,0,0,72	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Fussstoß vorwärts mit rechts
+V1 Unterarmblock nach innen
+V2 Schlag mit Handballen zum Kopf
+V3 Rückriss
+V4 Fauststoß abwärts zum Kopf
+
+A2 Schwinger mit rechts
+V1 3er Kontakt oben
+V2 Rückriss
+V3 Fauststoß abwärts zum Kopf
+
+A3 Rückhandschlag mit rechts
+V1 EBSNI + Greifen
+V2 Rückriss
+V3 Fauststoß abwärts zum Kopf
+..weitere Aufgaben	0,,0,0,73	rsv,-130,478,0,16,ffffff,0000ff,000000
+...Waffenabwehr	0,ff00ff,0,0,74	rsv,-292,-168,1,16,ffffff,0000ff,000000
+....8xStockabwehr mit waffenloser Folgetechnik	0,ff00ff,0,0,75	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+.....Angriff 1	0,0000ff,0,0,76	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 3er Kontakt innen +Schlag zum Hals
+V2 Arm oben umleitenstrecken und Stock entwaffnen
+V3 Armstreckhebel zum Boden oder Handbeugehebel 
+
+.....Angriff 2	0,0000ff,0,0,77	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Angriff mit Hand und Ellenbogenschlag blocken
+V2 greifen und umlenken von waffenführenden Arm mit rechts
+V3 Stock mit Scherbewegung entwaffnen
+V4 Gegner kontrollieren mit Handbeugehebel
+
+.....Angriff 3	0,0000ff,0,0,78	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 3er Kontakt innen +Schlag zum Hals
+V2 Arm oben umleitenstrecken und Stock entwaffnen
+V3 Armstreckhebel zum Boden oder Handbeugehebel 
+
+ 
+.....Angriff 4	0,0000ff,0,0,79	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Angriff mit beiden Händen blocken und mit rechter Hand durch das Gesicht wischen
+V2 greifen und umlenken von waffenführenden Arm mit rechts
+V3 Stock mit Scherbewegung entwaffnen
+V4 Gegner kontrollieren mit Handbeugehebel
+.....Angriff 5	0,0000ff,0,0,80	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Angriff mit links nach innen fegen und mit rechten Ellenbogen auf den waffenführenden Arm schlagen
+V2 Arm mit inker Hand sichern und mit rechter Hand durch das Gesicht wischen
+V2 greifen und umlenken von waffenführenden Arm mit rechts
+V3 Stock mit Scherbewegung entwaffnen
+V4 Gegner kontrollieren mit Handbeugehebel
+
+.....Angriff 6	0,0000ff,0,0,81	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Angriff zum Bein des Gegners umlegen
+V2 Arm wird mit rechts gehalten und mit der linkrn Hand durch eine Scherbewegung entwaffnet
+V3 Halbkreisfusstritt zum Kopf
+V4 Fußstoß seitwärts
+
+.....Angriff 7	0,0000ff,0,0,82	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Block mit links und Schlag zum Hals
+V2 Snake eingang mit links und Schlag auf Unterarm
+V3 Schlag in Genitalien 
+
+.....Angriff 8	0,ff00ff,0,0,83	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Block mit rechts und naher Griff mit links
+V2 Durch Gesicht wischen
+V3 Waffe mit Scherbewegung entwaffnen
+V4 unter dem Arm durchtauchen
+V5 umgekehrter Kipphandhebel 
+
+....5xMesserabwehr mit Entwaffnungstechnik	0,ff00ff,0,0,84	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+.....Angriff 1	0,00ff00,0,0,85	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Blocken + Schlag ins Gesicht als Schock + umleiten nach unten
+V2 Waffen führenden Arm mit linker Hand halten und Arm auf Zug in Schulterhöhe bringen
+V3 Entwaffnen durch Druck auf Klinge in Richtung Unterarm des Gegners
+V4 Fußstoß seitwärts
+
+.....Angriff 2	0,00ff00,0,0,86	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Block mit Ellenbogentechnik zum waffenführenden Arm des Gegners und Arm mit rechts sichern
+V2 Arm mit rechter Hand halten und auf zug bringen (Schulterhöhe)
+V3 Mit Druck durch Unterarm auf Klinge des Messers entwaffnen
+V4 mit links den Ellenbogen sichern
+V5 Armbeugehebel + Transport von Waffe weg
+
+.....Angriff 3	0,ff00ff,0,0,87	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Blocken + Schlag ins Gesicht als Schock + umleiten nach unten
+V2 Waffen führenden Arm mit linker Hand halten und Arm auf Zug in Schulterhöhe bringen
+V3 Entwaffnen durch Druck auf Klinge in Richtung Unterarm des Gegners
+V4 Arm nach innen umleiten
+V5 Schlag in Nieren + evtl. Körperabbiegen
+
+.....Angriff 4	0,ff00ff,0,0,88	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Block mit rechts
+V2 Arm mit links greifen und mit rechter Hand durch das Gesicht wischen
+V3 Waffenführenden Arm mit rechts halten und auf zug bringen
+V4 Messer durch Druck mit Unterarm in Richtung des Gegners entwaffnen
+V5 Armstreckhebel zum Boden
+
+.....Angriff 5	0,00ff00,0,0,89	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+V1 Angriff mit links nach innen fegen und mit rechten Arm auf den waffenführenden Arm schlagen 
+V2 Arm mit links sichern und mit rechter Hand durch das Gesicht wischen 
+V3 Arm mit rechts sichern 
+V4 Waffen führenden Arm mit linker Hand halten und Arm auf Zug in Schulterhöhe bringen
+V5 Entwaffnen durch Druck auf Klinge in Richtung Unterarm des Gegners
+V6 Arm nach außen umleiten und Kniestoß zum Körper 
+...Weiterführungstechniken	0,ff0000,0,0,90	rsv,-320,15,1,16,ffffff,0000ff,000000
+....3xWeiterführung von Hebeltechnik	0,0000ff,0,0,91	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+.....Armstreckhebel über die Schulter	0,0000ff,0,0,92	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger
+V1 Armstreckhebel über die Schulter
+V2 Umgekehrter Kipphandhebel
+
+.....Bauchstreckhebel	0,0000ff,0,0,93	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Bauchstreckhebel
+V2 Körperstreckhebel am Boden
+V3 unter Handbeugehebel aufstehen
+
+.....Armstreckhebel	0,0000ff,0,0,94	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Armstreckhebel
+V2 Handbeugehebel mit Hand an Ellenbogen als Wiederlage
+
+....3xWeiterführung von Wurftechnik	0,ff0000,0,0,95	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+.....Schulterwurf	0,,0,0,96	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schlag von oben
+V1 Block und Schocktechnik
+V2 Schulterwurf
+
+R1  Gegner taucht ab
+V3 Schulterzug
+
+R2 Gegner steigt nach rechts aus
+V3 Durchtauchen und umgekehrter Kipphandhebel??? okay
+
+.....Große Außensichel	0,,0,0,97	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Große Außensichel
+V1 Gegner steigt nach hinten aus
+A2 Schenkelwurf oder Schulterwurf
+
+.....Hüftwurf	0,ff0000,0,0,98	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+....2xWeiterführung von Würgetechnik	0,00ff00,0,0,99	rsv,N/A,N/A,1,16,ffffff,0000ff,000000
+.....Schränkwürge unter Verwendung der Kleidung	0,00ff00,0,0,100	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schränkwürge unter Verwendung der Kleidung von vorne rechts
+R1Arm wir nach unten gezogen und der Gegner dreht sich unter dem Gegner durch
+V1 Drehbewegung wird blockiert und mit einem Genickhebel gekontert
+
+.....Würge von hinten mit dem Unterarm	0,00ff00,0,0,101	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schwinger mit rechts
+V1 Abtauchen
+V2 freies Würgen unter Zuhilfenahme der Schulter
+R1 Gegner blockiert Würge mit Arm und dreht sich nach unten rechts heraus
+V3 mit dem Gegner mit drehen und Körperabbiegen unter Verwendung von Nervendruck unter der Nase durchführen
+
+...Gegentechniken	0,ff00ff,0,0,102	rsv,-326,-66,1,16,ffffff,0000ff,000000
+....3xGegentechnik gegen Hebeltechnik	0,0000ff,0,0,103	rsv,-165,40,1,16,ffffff,0000ff,000000
+.....Armstreckhebel	0,00ff00,0,0,104	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 ich greife mit Schwinger + AW an
+R1 Armstreckhebel
+V1 Hand am Ellenbogen zur eigenen Brust ziehen
+V2 Beinrollwurf  nach vorn ( Bein mit rechts Greifen)
+V3 Atemi zum Gegner Talfallzug + Aufstehen
+
+.....Kipphandhebel	0,0000ff,0,0,105	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Griff diagonales Handgelenk
+R1 Kipphandhebel an rechter Hand
+V1 eigenen Arm unter Zuhilfenahme des linken Arms strecken
+V2 am gestreckten Arm selbst Kipphandhebel ausführen
+V3 Kontrolle des Gegners
+.....Armstreckhebel über die Schulter	0,00ff00,0,0,106	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Griff diagonales Handgelenk
+R1 Armstreckhebel über die Schulter
+V1 nach links mit springen ausweichen
+V2 Armstreckhebel über die Schulter
+V3 umgekehrter Kipphandhebel
+....3xGegentechnik gegen Wurftechnik	0,ff00ff,0,0,107	rsv,-171,-36,1,16,ffffff,0000ff,000000
+.....Hüftwurf	0,0000ff,0,0,108	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Hüftwurf
+V1 Absenken und Talfallzug
+V2 Kontrolle des Gegners
+
+.....Schulterwurf	0,0000ff,0,0,109	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schulterwurf
+V1 nach rechts aussteigen
+V2 Nervendruck unter der Nase und Körperabbiegen wenn nahe Distanz
+V3 Fauststoß
+.....große Außensichel	0,00ff00,0,0,110	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+Ich greife mit der rechten Hand in das Rever des Gegners und stelle mit in die Rechtsauslage
+
+A1 große Außensichel
+V1 linken Arm des Gegners durch herunterziehen auf der eigenen Brust fixieren + Aussteigen des rechten Beins nach hinten
+V2 Griff um den Hals und Hüftwurf
+....2xGegentechnik gegen Würgetechnik	0,0000ff,0,0,111	rsv,-147,-106,1,16,ffffff,0000ff,000000
+.....Schränkwürge ohne Verwendung der Kleidung	0,0000ff,0,0,112	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schränkwürge ohne Verwendung der Kleidung von vorne rechts
+V1 Arm nach untenziehen und in den Gegner reindrehen
+V2 Armhebel
+
+.....Schränkwürge von hinten	0,0000ff,0,0,113	rsv,N/A,N/A,0,16,ffffff,0000ff,000000
+A1 Schränkwürge von hinten
+V1 rechten Arm eng greifen und Kopf in Richtung des Arms unter rausdrehen
+V2 umgekehrter Körperstreckhebel und Reisballenwurf
+
+...freie Selbstverteidigung	0,,0,0,114	rsv,-348,182,0,16,ffffff,0000ff,000000
+Verteidigung gegen zwei unbewaffnete Angreifer (angesagt und frei)
+
+...freie Anwendungsformen	0,,0,0,115	rsv,-322,104,0,16,ffffff,0000ff,000000
+freie Auseinandersetzung mit Ju-Jutsu Techniken
+
+
+
+
+
+
+
+
+
+

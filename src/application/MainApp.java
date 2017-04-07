@@ -1,5 +1,14 @@
 package application;
 	
+import java.util.List;
+
+import com.sun.prism.paint.Color;
+
+import HolLib.DataItem;
+import HolLib.HolLibIF;
+import HolLib.HolLibImpl;
+import application.model.DataStorage;
+import application.model.OutLinerNode;
 import application.view.OutLinerViewController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +23,8 @@ public class MainApp extends Application {
 	
 	private Stage primaryStage;
 	private BorderPane rootLayout;
+	OutLinerViewController controller;
+	DataStorage dataStorage = new DataStorage();
 	
 	@Override
 	public void start(Stage primaryStage) {
@@ -52,8 +63,10 @@ public class MainApp extends Application {
 			
 			rootLayout.setCenter(outLinerView);
 			
-			OutLinerViewController controller = loader.getController();
+			controller = loader.getController();
 			controller.setMainApp(this);
+			
+			testCode();
 		}
 		catch (Exception ex){
 			System.out.println(ex.getMessage());
@@ -64,7 +77,27 @@ public class MainApp extends Application {
 		return primaryStage;
 	}
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
+	
 		launch(args);
+		System.out.println(System.getProperty("user.dir"));
+		
+		
+	}
+	
+	public DataStorage getDataStorage(){
+		return dataStorage;
+	}
+	
+	void testCode() throws Exception{
+		HolLibIF myHolLib = new HolLibImpl(); 
+		List<DataItem> items = myHolLib.read("test.hol");
+		
+		for(DataItem item : items){
+			OutLinerNode nodeItem = new OutLinerNode(item.getTitle(), item.getItemColor(), item.getItemText());
+			dataStorage.addChild(nodeItem, 0);
+			controller.addNode(item.getTitle(), item.getItemColor(),item.getItemId(), 0);
+		}
+
 	}
 }

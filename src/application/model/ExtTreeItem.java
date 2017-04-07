@@ -14,5 +14,9 @@ public class ExtTreeItem {
 	public String toString() {
 		return text;
 	}
+	
+	public int getId(){
+		return id;
+	}
 
 }
