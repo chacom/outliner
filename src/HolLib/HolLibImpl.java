@@ -11,6 +11,8 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import application.model.DataItem;
+
 public class HolLibImpl implements HolLibIF {
 	
 	private static  Map<String, Color> colorMap = new HashMap<>();
@@ -37,11 +39,13 @@ public class HolLibImpl implements HolLibIF {
 		ArrayList<String> InputData = new ArrayList<>();
 		Logger logger = Logger.getLogger("ErrorLog.txt");
 		FileInputStream fis = new FileInputStream(new File(FilePath));
-		BufferedReader br = new BufferedReader(new InputStreamReader(fis));
+		BufferedReader br = new BufferedReader(new InputStreamReader(fis,"UTF-8"));
 		
 		logger.log( Level.INFO, "Read Input file");
 		
+
 		String Temp = br.readLine();
+		
 		while(Temp != null)
 		{
 			InputData.add(Temp);
@@ -72,14 +76,10 @@ public class HolLibImpl implements HolLibIF {
 			EntryData entry = entries.get(idx);
 			
 			String currNodeLine = input.get(entry.start);
-			NodeInfo node = parseNodeLine(currNodeLine);
+			DataItem node = parseNodeLine(currNodeLine);
 			
-			DataItem currItem = new DataItem();
-			currItem.itemColor = node.itemColor;
-			currItem.itemPos = node.itemPos;
-			currItem.title = node.title;
-			currItem.nodeCnt = node.nodeCnt;
-			currItem.itemId  = idx;
+			DataItem currItem = new DataItem(node);
+			currItem.setItemId(idx);
 			int endIdx;
 			
 			if((entries.size()-1) > idx){
@@ -90,12 +90,12 @@ public class HolLibImpl implements HolLibIF {
 				endIdx = entries.size() - 1;
 			}
 			
-			currItem.ItemText = "";
-			for(int cnt = entry.start; cnt <= endIdx; cnt++){
-				currItem.ItemText = currItem.ItemText + input.get(cnt);
-			}
+			currItem.setItemText("");
 			
-			currItem.itemLevel = entry.level;
+			for(int cnt = entry.start + 1 ; cnt <= endIdx; cnt++){
+				currItem.setItemText(currItem.getItemText()+ input.get(cnt) + "\n");
+			}
+			currItem.setItemLevel(entry.level);
 			
 			dataItems.add(currItem);
 		}
@@ -103,26 +103,26 @@ public class HolLibImpl implements HolLibIF {
 		
 	}
 	
-	NodeInfo parseNodeLine(String line)
+	DataItem parseNodeLine(String line)
 	{
-		NodeInfo ni = new NodeInfo();
+		DataItem di = new DataItem();
 		String temp = line.substring(line.indexOf('\t')+1);
 		int level = CheckLevel(line);
 		
-		ni.title = line.substring(0 + level, line.indexOf('\t'));
+		di.setTitle(line.substring(0 + level, line.indexOf('\t')));
 		
 		String[] split = temp.split(",");
 		
 		if(colorMap.containsKey(split[1]))
 		{
-			ni.itemColor = colorMap.get(split[1]);	
+			di.setItemColor(colorMap.get(split[1]));	
 		}
 		else
 		{
-			ni.itemColor = Color.Black;
+			di.setItemColor(Color.Black);
 		}
 		System.out.println(split);
-		return ni;
+		return di;
 	}
 
 	int CheckLevel(String line)

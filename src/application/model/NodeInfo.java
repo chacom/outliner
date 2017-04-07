@@ -1,10 +1,12 @@
-package HolLib;
+package application.model;
+
+import HolLib.Color;
 
 public class NodeInfo {
 	String title;
 	Color  itemColor;
-	String itemPos;
 	int	   nodeCnt;
+	
 	public String getTitle() {
 		return title;
 	}
@@ -16,12 +18,6 @@ public class NodeInfo {
 	}
 	public void setItemColor(Color itemColor) {
 		this.itemColor = itemColor;
-	}
-	public String getItemPos() {
-		return itemPos;
-	}
-	public void setItemPos(String itemPos) {
-		this.itemPos = itemPos;
 	}
 	public int getNodeCnt() {
 		return nodeCnt;

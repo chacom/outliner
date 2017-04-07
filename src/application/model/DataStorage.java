@@ -1,53 +1,66 @@
 package application.model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import HolLib.Color;
 
 public class DataStorage {
 
-	int lastNodeId = 0;
 	int lastAddNodeId = 0;
+
+	ArrayList<DataItem> nodeList = new ArrayList<>();
 	
-	ArrayList<OutLinerNode> nodeList = new ArrayList<>();
-	
-	
+	ArrayList<ListChangeListener> listeners = new ArrayList<>();
+
 	public DataStorage() {
-		nodeList.add(new OutLinerNode("root",Color.Black,""));
-		nodeList.get(0).setUiId(0);
+		nodeList.add(new DataItem("root", Color.Black, ""));
+
+		nodeList.get(0).setItemId(0);
 	}
-	
-	
-	public void addChild(OutLinerNode node, int parentId){
-		
-		for(int idx = 0; idx < nodeList.size(); idx++){
-			if(nodeList.get(idx).nodeId == parentId){
-				
-				node.nodeId = node.nodeId;
-				node.prev = nodeList.get(idx);
-				nodeList.add(node);
-				break;
-			}
+
+	public void addChild(DataItem node) {
+
+		nodeList.add(node);
+		for(ListChangeListener listener : listeners){
+			listener.onChange(ChangeType.Add, node);
 		}
+
 	}
-	
-	public OutLinerNode getRootNode(){
+
+	public void addChildren(List<DataItem> list) {
+
+		for (DataItem item : list) {
+			addChild(item);
+		}
+		nodeList.addAll(list);
+	}
+
+	public DataItem getRootNode() {
 		return nodeList.get(0);
 	}
-	
-	public int getLastAddNodeId(){
+
+	public int getLastAddNodeId() {
 		return lastAddNodeId;
 	}
-	
-	public Optional<String> getText(int nodeId){
-		for(OutLinerNode item : nodeList){
-			if(item.nodeId == nodeId){
-				return Optional.of(item.text);
+
+	public Optional<String> getText(int nodeId) {
+		for (DataItem item : nodeList) {
+			if (item.itemId == nodeId) {
+				return Optional.of(item.itemText);
 			}
 		}
 		return Optional.empty();
 	}
+
+	public void cleanList() {
+		nodeList.clear();
+		lastAddNodeId = 0;
+	}
 	
-	
+	public void addListener(ListChangeListener currListener){
+		listeners.add(currListener);
+	}
+
 }
