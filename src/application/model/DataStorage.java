@@ -47,7 +47,6 @@ public class DataStorage {
 		for (DataItem item : list) {
 			addChild(item);
 		}
-		nodeList.addAll(list);
 	}
 
 	public DataItem getRootNode() {
@@ -91,6 +90,10 @@ public class DataStorage {
 				item.itemColor = currColor;
 			}
 		}
+	}
+	
+	public List<DataItem> getData(){
+		return nodeList;
 	}
 	
 	public void removeNode(int nodeId)

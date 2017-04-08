@@ -45,8 +45,6 @@ public class OutLinerViewController implements ListChangeListener {
 	@FXML
 	private void initialize() {
 		
-		System.out.println("Initialize");
-		
 		treeView.setCellFactory(tv ->  new TreeCell<ExtTreeItem>() {
 		    @Override
 		    public void updateItem(ExtTreeItem item, boolean empty) {
@@ -108,7 +106,6 @@ public class OutLinerViewController implements ListChangeListener {
 				Optional<String> resText = storage.getText(id);
 				textBox.clear();
 				if(resText.isPresent()){
-					System.out.println(resText.get());
 					textBox.appendText(resText.get());
 				}
 			}
@@ -188,7 +185,6 @@ public class OutLinerViewController implements ListChangeListener {
 		value.setColor(currColor);
 		currItem.setValue(value);
 		treeView.refresh();
-		System.out.println("try to set color: " + currColor.toString());
 	}
 	
 	
@@ -286,8 +282,6 @@ public class OutLinerViewController implements ListChangeListener {
 			TreeItem<ExtTreeItem> parent = lastItem.getParent();
 			
 			while(!matchFound){
-				
-				System.out.println("curr level: "+ parent.getValue().getLevel());
 				
 				TreeItem<ExtTreeItem> tempParent = parent;
 				

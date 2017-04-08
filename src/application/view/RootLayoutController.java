@@ -14,6 +14,7 @@ import javafx.stage.FileChooser.ExtensionFilter;
 public class RootLayoutController {
 
 	private MainApp mainApp;
+	String lastUsedFilePath = null;
 
 	@FXML
 	private void initialize() {
@@ -32,22 +33,40 @@ public class RootLayoutController {
 		File selectedFile = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
 			HolLibIF myHolLib = new HolLibImpl();
-			System.out.println(System.getProperty("user.dir"));
 			
 			List<DataItem> items = myHolLib.read(selectedFile.getPath());
-			
+			lastUsedFilePath = selectedFile.getPath();
 			mainApp.getDataStorage().addChildren(items);
 		}
 	}
 
 	@FXML
-	private void handleSaveAction() {
-		System.out.println("handleSaveAction");
+	private void handleSaveAction() throws Exception {
+		if(lastUsedFilePath != null){
+			HolLibIF myHolLib = new HolLibImpl();
+			List<DataItem> data = mainApp.getDataStorage().getData();
+			
+			myHolLib.write(lastUsedFilePath, data);
+		}
+			
 	}
 
 	@FXML
-	private void handleSaveAsAction() {
+	private void handleSaveAsAction() throws Exception {
 		System.out.println("handleSaveAsAction");
+		
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Save file as");
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Outliner files", "*.hol"));
+		
+		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
+		if (selectedFile != null) {
+			HolLibIF myHolLib = new HolLibImpl();
+			List<DataItem> data = mainApp.getDataStorage().getData();
+			myHolLib.write(selectedFile.getPath(), data);
+		}
+		
+		
 	}
 
 	@FXML

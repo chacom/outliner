@@ -1,9 +1,13 @@
 package HolLib;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -87,7 +91,7 @@ public class HolLibImpl implements HolLibIF {
 				endIdx = entries.get(idx+1).start - 1;
 			}
 			else{
-				endIdx = entries.size() - 1;
+				endIdx = input.size() - 1;
 			}
 			
 			currItem.setItemText("");
@@ -142,9 +146,54 @@ public class HolLibImpl implements HolLibIF {
 	}
 	
 	@Override
-	public boolean write(String FilePath, List<DataItem> data) {
-		// TODO Auto-generated method stub
+	public boolean write(String FilePath, List<DataItem> data) throws IOException {
+ 		FileOutputStream fos = new FileOutputStream(new File(FilePath));
+		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos,"UTF-8"));
+		
+		bw.write("VERSION=2.0\n");
+		bw.write("HM:BACKGROUND_COLOR=cccccc\n");
+		bw.write("HO:AUTO_NUMBERING=OFF\n");
+		
+		for(int idx = 0; idx < data.size();idx++){
+			DataItem item = data.get(idx);
+			if(item.getItemLevel() > 0){
+				String levStr = buildLevelString(item.getItemLevel());
+				String colStr = buildColorString(item.getItemColor());
+				
+				String temp = levStr + item.getTitle() + "\t0,"+ colStr + ",0,0," + (idx+1) + "\n";
+				bw.write(temp);
+				bw.write(item.getItemText());
+				
+			}
+		}
+		
+		bw.close();
+		
 		return false;
+	}
+	
+	String buildLevelString(int level){
+		String res = "";
+		for(int idx = 0; idx < level; idx++){
+			res = res + ".";
+		}
+		
+		return res;
+	}
+	
+	String buildColorString(NodeColor color)
+	{
+		String res = "";
+		Object[] keys = colorMap.keySet().toArray();
+		Object[] values = colorMap.values().toArray();
+	
+		for(int idx = 0; idx < values.length; idx++){
+			if(values[idx] == color){
+				res = (String)keys[idx];
+				return res;
+			}
+		}
+		return res;
 	}
 
 }
