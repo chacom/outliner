@@ -46,11 +46,6 @@ public class OutLinerViewController implements ListChangeListener {
 	private void initialize() {
 		
 		System.out.println("Initialize");
-		root = new TreeItem<ExtTreeItem>();
-		root.setValue(new ExtTreeItem("myRoot", 0,0,NodeColor.Black));
-		treeView.setRoot(root);
-		lastItem = root;
-		textBox.setText("bla");
 		
 		treeView.setCellFactory(tv ->  new TreeCell<ExtTreeItem>() {
 		    @Override
@@ -107,13 +102,15 @@ public class OutLinerViewController implements ListChangeListener {
 		Node node = event.getPickResult().getIntersectedNode();
 		if (node instanceof Text || (node instanceof TreeCell && ((TreeCell) node).getText() != null)) {
 			TreeItem<ExtTreeItem> x = (TreeItem<ExtTreeItem>) treeView.getSelectionModel().getSelectedItem();
-			int id = x.getValue().getId();
-			DataStorage storage = mainApp.getDataStorage();
-			Optional<String> resText = storage.getText(id);
-			textBox.clear();
-			if(resText.isPresent()){
-				System.out.println(resText.get());
-				textBox.appendText(resText.get());
+			if(x != null){
+				int id = x.getValue().getId();
+				DataStorage storage = mainApp.getDataStorage();
+				Optional<String> resText = storage.getText(id);
+				textBox.clear();
+				if(resText.isPresent()){
+					System.out.println(resText.get());
+					textBox.appendText(resText.get());
+				}
 			}
 	    }
 	}
@@ -170,7 +167,9 @@ public class OutLinerViewController implements ListChangeListener {
 		
 		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
 		int parentId = currItem.getValue().getId();
-		mainApp.getDataStorage().addNewNode("Dummy", parentId);
+		int parentLevel = currItem.getValue().getLevel();
+		
+		mainApp.getDataStorage().addNewNode("Dummy", parentId, parentLevel + 1);
 	}
 	
 	@FXML
@@ -193,12 +192,32 @@ public class OutLinerViewController implements ListChangeListener {
 	}
 	
 	
+	@FXML
+	private void handleTextChange() {
+		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
+		
+		mainApp.getDataStorage().modifyText(currItem.getValue().getId(), textBox.getText());
+	}
 	
+	@FXML
+	private void handleTitleChange(){
+		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
+		
+		String newTitle = currItem.getValue().toString();
+		int nodeId = currItem.getValue().getId();
+		NodeColor currColor = currItem.getValue().getColor();
+		
+		mainApp.getDataStorage().modifyTitle(nodeId, newTitle, currColor);
+	}
+	
+
 	
 	public void addNode(DataItem item, int parentId)
 	{
-		
-		//TODO How to handle the color?
+		if(root == null){
+			handleRootNotSet(item);
+			return;
+		}
 		
 		if(parentId == 0)
 		{
@@ -228,13 +247,27 @@ public class OutLinerViewController implements ListChangeListener {
 		}
 	}
 	
-	public void addNodeWithLogic(DataItem item) {
+	private void handleRootNotSet(DataItem item){
 		
-		int currLevel = lastItem.getValue().getLevel();
-		
-	
 		ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel(),item.getItemColor());
 		TreeItem<ExtTreeItem> newItem = new TreeItem<ExtTreeItem>(extTreeItem);
+		
+		root = newItem;
+		treeView.setRoot(root);
+		lastItem = newItem;
+	}
+	
+	public void addNodeWithLogic(DataItem item) {
+		
+		ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),item.getItemLevel(),item.getItemColor());
+		TreeItem<ExtTreeItem> newItem = new TreeItem<ExtTreeItem>(extTreeItem);
+		
+		if(root == null){
+			handleRootNotSet(item);
+			return;
+		}
+		
+		int currLevel = lastItem.getValue().getLevel();
 		
 		if(currLevel == item.getItemLevel()){
 			TreeItem<ExtTreeItem> parent = lastItem.getParent();
@@ -254,10 +287,9 @@ public class OutLinerViewController implements ListChangeListener {
 			
 			while(!matchFound){
 				
-				if(parent == root){
-					System.out.println("No match found: " + item.getItemLevel());
-					break;
-				}
+				System.out.println("curr level: "+ parent.getValue().getLevel());
+				
+				TreeItem<ExtTreeItem> tempParent = parent;
 				
 				if(parent.getValue().getLevel() >= item.getItemLevel())
 				{
@@ -267,6 +299,11 @@ public class OutLinerViewController implements ListChangeListener {
 					parent.getChildren().add(newItem);
 					lastItem = newItem;
 					matchFound = true;
+				}
+				
+				if((tempParent == root) && (!matchFound)){
+					System.out.println("No match found: " + item.getItemLevel());
+					break;
 				}
 				
 			}
@@ -302,6 +339,7 @@ public class OutLinerViewController implements ListChangeListener {
 		if(type == ChangeType.Add)
 		{
 			addNodeWithLogic(item);
+			
 		}
 		
 		if(type == ChangeType.AddToPresent)

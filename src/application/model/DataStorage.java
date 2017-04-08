@@ -115,9 +115,10 @@ public class DataStorage {
 		
 	}
 	
-	public void addNewNode(String title, int parentId){
+	public void addNewNode(String title, int parentId, int level){
 		
 		DataItem item = new DataItem(title, NodeColor.Black, "");
+		item.itemLevel = level;
 		
 		Integer searchIdx = null;
 		for(int idx = 0; idx < nodeList.size();idx++)
@@ -128,10 +129,7 @@ public class DataStorage {
 			}
 		}
 		
-		
 		addChild(item,searchIdx);
-
-		
 	}
 
 }

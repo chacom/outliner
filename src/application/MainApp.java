@@ -7,6 +7,7 @@ import HolLib.HolLibImpl;
 import application.model.DataItem;
 import application.model.DataStorage;
 import application.view.OutLinerViewController;
+import application.view.RootLayoutController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -20,7 +21,9 @@ public class MainApp extends Application {
 	
 	private Stage primaryStage;
 	private BorderPane rootLayout;
-	OutLinerViewController controller;
+	OutLinerViewController 	controllerMainView;
+	RootLayoutController 	controllerRootView;
+	
 	DataStorage dataStorage = new DataStorage();
 	
 	@Override
@@ -42,8 +45,12 @@ public class MainApp extends Application {
 			rootLayout = (BorderPane) loader.load();
 			
 			Scene scene = new Scene(rootLayout);
+			
+			controllerRootView = loader.getController();
+			controllerRootView.setMainApp(this);
 			primaryStage.setScene(scene);
 			primaryStage.show();
+			
 		}
 		catch(Exception ex) {
 			System.out.println(ex.getMessage());
@@ -60,8 +67,8 @@ public class MainApp extends Application {
 			
 			rootLayout.setCenter(outLinerView);
 			
-			controller = loader.getController();
-			controller.setMainApp(this);
+			controllerMainView = loader.getController();
+			controllerMainView.setMainApp(this);
 			
 			testCode();
 		}
@@ -87,11 +94,11 @@ public class MainApp extends Application {
 	}
 	
 	void testCode() throws Exception{
-		HolLibIF myHolLib = new HolLibImpl();
-		System.out.println(System.getProperty("user.dir"));
-		List<DataItem> items = myHolLib.read("test.hol");
-		
-		dataStorage.addChildren(items);
+//		HolLibIF myHolLib = new HolLibImpl();
+//		System.out.println(System.getProperty("user.dir"));
+//		List<DataItem> items = myHolLib.read("test.hol");
+//		
+//		dataStorage.addChildren(items);
 		
 //		for(DataItem item : items){
 //		
