@@ -94,16 +94,9 @@ public class MainApp extends Application {
 	}
 	
 	void testCode() throws Exception{
-//		HolLibIF myHolLib = new HolLibImpl();
-//		System.out.println(System.getProperty("user.dir"));
-//		List<DataItem> items = myHolLib.read("test.hol");
-//		
-//		dataStorage.addChildren(items);
+			
 		
-//		for(DataItem item : items){
-//		
-//			controller.addNode(item, 0);
-//		}
-
 	}
+
+	
 }
