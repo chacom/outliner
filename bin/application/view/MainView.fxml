@@ -14,11 +14,12 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
                <children>
-                  <TreeView fx:id="treeView" editable="true" layoutX="14.0" layoutY="21.0" onEditCommit="#handleTextChange" onKeyPressed="#handleItemSelection" onMouseClicked="#handleItemSelection" prefHeight="598.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <TreeView fx:id="treeView" layoutX="14.0" layoutY="21.0" onEditCommit="#handleTextChange" onMouseClicked="#handleItemSelection" prefHeight="598.0" prefWidth="235.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <contextMenu>
                         <ContextMenu>
                           <items>
                             <MenuItem mnemonicParsing="false" onAction="#addNodeByUser" text="Add Child" />
+                              <MenuItem mnemonicParsing="false" onAction="#enableEditable" text="Rename" />
                               <MenuItem mnemonicParsing="false" onAction="#removeNode" text="Delete" />
                               <Menu mnemonicParsing="false" text="Change Color">
                                 <items>
@@ -39,7 +40,7 @@
             </AnchorPane>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="651.0" prefWidth="557.0">
                <children>
-                  <TextArea fx:id="textBox" layoutX="91.0" layoutY="71.0" onInputMethodTextChanged="#handleTextChange" prefHeight="598.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+                  <TextArea fx:id="textBox" layoutX="91.0" layoutY="71.0" onKeyReleased="#handleTextChange" prefHeight="598.0" prefWidth="557.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
                </children>
             </AnchorPane>
         </items>

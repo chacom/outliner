@@ -1,17 +1,20 @@
 package application.model;
 
+import java.util.UUID;
+
 import HolLib.NodeColor;
 
 public class DataItem extends NodeInfo{
 	String itemText;
 	int itemLevel;
-	int itemId;
+	UUID itemId;
 	
 	
 	public DataItem(String title, NodeColor color, String text) {
 		this.itemColor = color;
 		this.title = title;
 		this.itemText = text;
+		this.itemId = UUID.randomUUID();
 	}
 	
 	public DataItem(DataItem srcItem){
@@ -26,10 +29,10 @@ public class DataItem extends NodeInfo{
 	public DataItem() {
 	}
 	
-	public int getItemId() {
+	public UUID getItemId() {
 		return itemId;
 	}
-	public void setItemId(int itemId) {
+	public void setItemId(UUID itemId) {
 		this.itemId = itemId;
 	}
 	public String getItemText() {

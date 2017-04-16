@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -83,7 +84,7 @@ public class HolLibImpl implements HolLibIF {
 			DataItem node = parseNodeLine(currNodeLine);
 			
 			DataItem currItem = new DataItem(node);
-			currItem.setItemId(idx);
+			currItem.setItemId(UUID.randomUUID());
 			int endIdx;
 			
 			if((entries.size()-1) > idx){
@@ -150,6 +151,8 @@ public class HolLibImpl implements HolLibIF {
  		FileOutputStream fos = new FileOutputStream(new File(FilePath));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos,"UTF-8"));
 		
+		String newline = System.getProperty("line.separator");
+		
 		bw.write("VERSION=2.0\n");
 		bw.write("HM:BACKGROUND_COLOR=cccccc\n");
 		bw.write("HO:AUTO_NUMBERING=OFF\n");
@@ -162,7 +165,13 @@ public class HolLibImpl implements HolLibIF {
 				
 				String temp = levStr + item.getTitle() + "\t0,"+ colStr + ",0,0," + (idx+1) + "\n";
 				bw.write(temp);
-				bw.write(item.getItemText());
+				if(item.getItemText().endsWith(newline)){
+					bw.write(item.getItemText());
+				}
+				else{
+					bw.write(item.getItemText() + newline);
+				}
+				
 				
 			}
 		}

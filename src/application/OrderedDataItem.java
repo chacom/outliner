@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.UUID;
 
 import HolLib.NodeColor;
 import application.model.DataItem;
@@ -11,7 +12,7 @@ public class OrderedDataItem {
 	
 	String itemText;
 	int itemLevel;
-	int itemId;
+	UUID itemId;
 	String title;
 	NodeColor  itemColor;
 	int	   nodeCnt;
@@ -37,7 +38,7 @@ public class OrderedDataItem {
 	 * @param itemColor
 	 * @param nodeCnt
 	 */
-	public OrderedDataItem(String title, int itemId, String itemText, int itemLevel, NodeColor  itemColor, int nodeCnt) {
+	public OrderedDataItem(String title, UUID itemId, String itemText, int itemLevel, NodeColor  itemColor, int nodeCnt) {
 		
 		this.title = title;
 		this.itemText = itemText;

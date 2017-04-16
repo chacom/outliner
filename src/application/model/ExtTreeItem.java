@@ -1,19 +1,25 @@
 package application.model;
 
+import java.util.UUID;
+
 import HolLib.NodeColor;
 
 public class ExtTreeItem {
 	
 	String text;
-	int id;
+	UUID id;
 	int level;
 	NodeColor color;
 	
-	public ExtTreeItem(String text, int id, int level, NodeColor color) {
+	public ExtTreeItem(String text, UUID id, int level, NodeColor color) {
 		this.text = text;
 		this.id = id;
 		this.level = level;
 		this.color = color;
+	}
+	
+	public void setTitle(String text){
+		this.text = text;
 	}
 	
 	@Override
@@ -22,7 +28,7 @@ public class ExtTreeItem {
 	}
 	
 	
-	public int getId(){
+	public UUID getId(){
 		return id;
 	}
 	
