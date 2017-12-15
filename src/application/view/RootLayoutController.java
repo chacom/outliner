@@ -26,6 +26,20 @@ public class RootLayoutController {
 	public void setMainApp(MainApp mainApp) {
 		this.mainApp = mainApp;
 	}
+	
+	@FXML
+	private void handleNewFile() {
+		
+		FileChooser fileChooser = new FileChooser();
+		fileChooser.setTitle("Select new file");
+		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Outliner files", "*.hol"));
+		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
+		if (selectedFile != null) {
+			lastUsedFilePath = selectedFile.getPath();
+		}
+	}
+	
+	
 
 	@FXML
 	private void handleOpenFile() throws Exception {

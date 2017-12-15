@@ -238,7 +238,7 @@ public class OutLinerViewController implements ListChangeListener {
 	}
 
 	@FXML
-	private void addNodeByUser(ActionEvent event) {
+	private void addChildrenNodeByUser(ActionEvent event) {
 
 		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
 
@@ -253,6 +253,27 @@ public class OutLinerViewController implements ListChangeListener {
 				mainApp.getDataStorage().addNewNode("New node", null, 0);
 			}
 		}
+	}
+	
+	@FXML
+	private void addSiblingNodeByUser(ActionEvent event) {
+
+	/*	
+		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
+
+		
+		if (currItem != null) {
+			UUID parentId = currItem.getValue().getId();
+			int parentLevel = currItem.getValue().getLevel();
+
+			mainApp.getDataStorage().addNewNode("New node", parentId, parentLevel + 1);
+		} else {
+			if (mainApp.getDataStorage().listIsEmpty()) {
+				// Add root node
+				mainApp.getDataStorage().addNewNode("New node", null, 0);
+			}
+		}
+		*/
 	}
 
 	@FXML

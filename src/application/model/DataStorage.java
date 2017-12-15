@@ -11,9 +11,9 @@ public class DataStorage {
 
 	int lastAddNodeId = 0;
 
-	ArrayList<DataItem> nodeList = new ArrayList<>();
+	List<DataItem> nodeList = new ArrayList<>();
 	
-	ArrayList<ListChangeListener> listeners = new ArrayList<>();
+	List<ListChangeListener> listeners = new ArrayList<>();
 
 	public DataStorage() {
 
