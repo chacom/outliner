@@ -1,10 +1,5 @@
 package application;
 	
-import java.util.List;
-
-import HolLib.HolLibIF;
-import HolLib.HolLibImpl;
-import application.model.DataItem;
 import application.model.DataStorage;
 import application.view.OutLinerViewController;
 import application.view.RootLayoutController;

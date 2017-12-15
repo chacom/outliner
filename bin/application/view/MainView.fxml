@@ -18,7 +18,8 @@
                      <contextMenu>
                         <ContextMenu>
                           <items>
-                            <MenuItem mnemonicParsing="false" onAction="#addNodeByUser" text="Add Child" />
+                            <MenuItem mnemonicParsing="false" onAction="#addChildrenNodeByUser" text="Add Child" />
+                              <MenuItem mnemonicParsing="false" onAction="#addSiblingNodeByUser" text="Add Sibling" />
                               <MenuItem mnemonicParsing="false" onAction="#enableEditable" text="Rename" />
                               <MenuItem mnemonicParsing="false" onAction="#removeNode" text="Delete" />
                               <Menu mnemonicParsing="false" text="Change Color">

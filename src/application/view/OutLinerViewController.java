@@ -18,6 +18,7 @@ import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.TreeCell;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
@@ -242,15 +243,20 @@ public class OutLinerViewController implements ListChangeListener {
 
 		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
 
+		TextInputDialog input = new TextInputDialog("Node Name");
+		input.setHeaderText("Node Name");
+		input.setContentText("Please insert the node name");
+		Optional<String> name = input.showAndWait();
+		
 		if (currItem != null) {
 			UUID parentId = currItem.getValue().getId();
 			int parentLevel = currItem.getValue().getLevel();
 
-			mainApp.getDataStorage().addNewNode("New node", parentId, parentLevel + 1);
+			addNewNodeInternal(name, parentId, parentLevel + 1);
 		} else {
 			if (mainApp.getDataStorage().listIsEmpty()) {
 				// Add root node
-				mainApp.getDataStorage().addNewNode("New node", null, 0);
+				addNewNodeInternal(name, null, 0);
 			}
 		}
 	}
@@ -258,23 +264,36 @@ public class OutLinerViewController implements ListChangeListener {
 	@FXML
 	private void addSiblingNodeByUser(ActionEvent event) {
 
-	/*	
 		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
 
+		TextInputDialog input = new TextInputDialog("Node Name");
+		input.setHeaderText("Node Name");
+		input.setContentText("Please insert the node name");
+		Optional<String> name = input.showAndWait();
 		
 		if (currItem != null) {
-			UUID parentId = currItem.getValue().getId();
-			int parentLevel = currItem.getValue().getLevel();
-
-			mainApp.getDataStorage().addNewNode("New node", parentId, parentLevel + 1);
+			UUID siblingId = currItem.getValue().getId();
+			int siblingLevel = currItem.getValue().getLevel();
+			
+			addNewNodeInternal(name, siblingId, siblingLevel);
+			
+			
 		} else {
 			if (mainApp.getDataStorage().listIsEmpty()) {
 				// Add root node
-				mainApp.getDataStorage().addNewNode("New node", null, 0);
+				addNewNodeInternal(name, null, 0);
 			}
 		}
-		*/
 	}
+
+	private void addNewNodeInternal(Optional<String> name, UUID parentId, int level) {
+		
+		name.ifPresent((str) -> {
+			mainApp.getDataStorage().addNewNode(str, null, 0);
+		});
+	}
+	
+	
 
 	@FXML
 	private void removeNode(ActionEvent event) {
