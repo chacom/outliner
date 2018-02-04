@@ -243,10 +243,7 @@ public class OutLinerViewController implements ListChangeListener {
 
 		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
 
-		TextInputDialog input = new TextInputDialog("Node Name");
-		input.setHeaderText("Node Name");
-		input.setContentText("Please insert the node name");
-		Optional<String> name = input.showAndWait();
+		Optional<String> name = getNodeName();
 		
 		if (currItem != null) {
 			UUID parentId = currItem.getValue().getId();
@@ -266,10 +263,7 @@ public class OutLinerViewController implements ListChangeListener {
 
 		TreeItem<ExtTreeItem> currItem = treeView.getSelectionModel().getSelectedItem();
 
-		TextInputDialog input = new TextInputDialog("Node Name");
-		input.setHeaderText("Node Name");
-		input.setContentText("Please insert the node name");
-		Optional<String> name = input.showAndWait();
+		Optional<String> name = getNodeName();
 		
 		if (currItem != null) {
 			UUID siblingId = currItem.getValue().getId();
@@ -285,11 +279,19 @@ public class OutLinerViewController implements ListChangeListener {
 			}
 		}
 	}
+	
+	private Optional<String> getNodeName() {
+		TextInputDialog input = new TextInputDialog("Node Name");
+		input.setHeaderText("Node Name");
+		input.setContentText("Please insert the node name");
+		Optional<String> name = input.showAndWait();
+		return name;
+	}
 
 	private void addNewNodeInternal(Optional<String> name, UUID parentId, int level) {
 		
 		name.ifPresent((str) -> {
-			mainApp.getDataStorage().addNewNode(str, null, 0);
+			mainApp.getDataStorage().addNewNode(str, parentId, level);
 		});
 	}
 	
