@@ -457,11 +457,17 @@ public class OutLinerViewController implements ListChangeListener {
 
 	@Override
 	public void onChange(ChangeType type, DataItem item, Object extInfo) {
-		if (type == ChangeType.Add) {
-			addNodeWithLogic(item);
-
+		
+		
+		if (type == ChangeType.Clear) {
+			treeView.setRoot(null);
 		}
 
+		if (type == ChangeType.Add) {
+			addNodeWithLogic(item);
+		}
+
+		
 		if (type == ChangeType.AddToPresent) {
 			if(extInfo instanceof UUID){
 				UUID tempId = (UUID) extInfo;

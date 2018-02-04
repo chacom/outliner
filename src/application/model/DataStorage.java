@@ -19,14 +19,18 @@ public class DataStorage {
 
 	}
 
+	public void clearData() {
+		nodeList = new ArrayList<>();
+		transferInfoToListeners(ChangeType.Clear, null, 0);
+	}
+	
 	public void addChild(DataItem node) {
 
 		node.itemId = UUID.randomUUID();
 		nodeList.add(node);
-		for(ListChangeListener listener : listeners){
-			listener.onChange(ChangeType.Add, node, 0);
-		}
-
+	
+		transferInfoToListeners(ChangeType.Add, node, 0);
+	
 	}
 	
 	public void addChild(DataItem node, int parentIdx) {
@@ -35,10 +39,14 @@ public class DataStorage {
 		nodeList.add(parentIdx + 1, node);
 		UUID parentId = nodeList.get(parentIdx).itemId;
 		
-		for(ListChangeListener listener : listeners){
-			listener.onChange(ChangeType.AddToPresent, node, parentId);
-		}
+		transferInfoToListeners(ChangeType.AddToPresent, node, parentId);
 
+	}
+
+	private void transferInfoToListeners(ChangeType type, DataItem item, Object extInfo) {
+		for(ListChangeListener listener : listeners){
+			listener.onChange(type, item, extInfo);
+		}
 	}
 	
 	public boolean listIsEmpty() {
@@ -113,9 +121,8 @@ public class DataStorage {
 		if(searchIdx != null){
 			DataItem temp = nodeList.get(searchIdx);
 			nodeList.remove(searchIdx.intValue());
-			for(ListChangeListener listener : listeners){
-				listener.onChange(ChangeType.Remove, temp, 0);
-			}
+			
+			transferInfoToListeners(ChangeType.Remove, temp, 0);
 		}
 		
 	}
@@ -141,8 +148,6 @@ public class DataStorage {
 			item.itemLevel = 1;
 			addChild(item);
 		}
-		
-		
 	}
 
 }

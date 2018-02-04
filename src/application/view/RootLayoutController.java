@@ -37,6 +37,7 @@ public class RootLayoutController {
 		if (selectedFile != null) {
 			lastUsedFilePath = selectedFile.getPath();
 		}
+		
 	}
 	
 	
@@ -106,5 +107,10 @@ public class RootLayoutController {
 	@FXML
 	private void handleCloseAction() {
 		System.out.println("handleCloseAction");
+	}
+	
+	void clearData()
+	{
+		
 	}
 }
