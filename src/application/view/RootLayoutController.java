@@ -35,6 +35,7 @@ public class RootLayoutController {
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Outliner files", "*.hol"));
 		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
+			mainApp.getDataStorage().clearData();
 			lastUsedFilePath = selectedFile.getPath();
 		}
 		
@@ -49,6 +50,7 @@ public class RootLayoutController {
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("Outliner files", "*.hol"));
 		File selectedFile = fileChooser.showOpenDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
+			mainApp.getDataStorage().clearData();
 			HolLibIF myHolLib = new HolLibImpl();
 			
 			List<DataItem> items = myHolLib.read(selectedFile.getPath());

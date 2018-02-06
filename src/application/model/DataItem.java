@@ -6,7 +6,6 @@ import HolLib.NodeColor;
 
 public class DataItem extends NodeInfo{
 	String itemText;
-	int itemLevel;
 	UUID itemId;
 	
 	
@@ -20,7 +19,6 @@ public class DataItem extends NodeInfo{
 	public DataItem(DataItem srcItem){
 		itemText 	= srcItem.itemText; 
 		itemId   	= srcItem.itemId;
-		itemLevel	= srcItem.itemLevel;
 		itemColor	= srcItem.itemColor;
 		title		= srcItem.title;
 		nodeCnt 	= srcItem.nodeCnt;
@@ -41,13 +39,5 @@ public class DataItem extends NodeInfo{
 	public void setItemText(String itemText) {
 		this.itemText = itemText;
 	}
-	public int getItemLevel() {
-		return itemLevel;
-	}
-	public void setItemLevel(int itemLevel) {
-		this.itemLevel = itemLevel;
-	}
 	
-	
-
 }

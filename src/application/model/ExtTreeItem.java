@@ -8,13 +8,13 @@ public class ExtTreeItem {
 	
 	String text;
 	UUID id;
-	int level;
+	//int level;
 	NodeColor color;
 	
-	public ExtTreeItem(String text, UUID id, int level, NodeColor color) {
+	public ExtTreeItem(String text, UUID id, NodeColor color) {
 		this.text = text;
 		this.id = id;
-		this.level = level;
+		//this.level = level;
 		this.color = color;
 	}
 	
@@ -32,9 +32,9 @@ public class ExtTreeItem {
 		return id;
 	}
 	
-	public int getLevel(){
-		return level;
-	}
+//	public int getLevel(){
+//		return level;
+//	}
 	
 	public void setColor(NodeColor color) {
 		this.color = color;

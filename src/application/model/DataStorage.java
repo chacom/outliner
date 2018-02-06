@@ -7,12 +7,14 @@ import java.util.UUID;
 
 import HolLib.NodeColor;
 
+
 public class DataStorage {
 
 	int lastAddNodeId = 0;
 
-	List<DataItem> nodeList = new ArrayList<>();
+	//List<DataItem> nodeList = new ArrayList<>();
 	
+	TreeNode<DataItem> dataTree;
 	List<ListChangeListener> listeners = new ArrayList<>();
 
 	public DataStorage() {
@@ -21,7 +23,7 @@ public class DataStorage {
 
 	public void clearData() {
 		nodeList = new ArrayList<>();
-		transferInfoToListeners(ChangeType.Clear, null, 0);
+		transferInfoToListeners(ChangeType.Clear, null, null);
 	}
 	
 	public void addChild(DataItem node) {
@@ -29,7 +31,7 @@ public class DataStorage {
 		node.itemId = UUID.randomUUID();
 		nodeList.add(node);
 	
-		transferInfoToListeners(ChangeType.Add, node, 0);
+		transferInfoToListeners(ChangeType.Add, node, null);
 	
 	}
 	
@@ -43,7 +45,7 @@ public class DataStorage {
 
 	}
 
-	private void transferInfoToListeners(ChangeType type, DataItem item, Object extInfo) {
+	private void transferInfoToListeners(ChangeType type, DataItem item, UUID extInfo) {
 		for(ListChangeListener listener : listeners){
 			listener.onChange(type, item, extInfo);
 		}
@@ -122,17 +124,16 @@ public class DataStorage {
 			DataItem temp = nodeList.get(searchIdx);
 			nodeList.remove(searchIdx.intValue());
 			
-			transferInfoToListeners(ChangeType.Remove, temp, 0);
+			transferInfoToListeners(ChangeType.Remove, temp, null);
 		}
 		
 	}
 	
-	public void addNewNode(String title, UUID parentId, int level){
+	public void addNewNode(String title, UUID parentId){
 		
 		DataItem item = new DataItem(title, NodeColor.Black, "");
 		
 		if(parentId != null){
-			item.itemLevel = level;
 			
 			Integer searchIdx = null;
 			for(int idx = 0; idx < nodeList.size();idx++)
@@ -145,9 +146,18 @@ public class DataStorage {
 			addChild(item,searchIdx);
 		}
 		else{
-			item.itemLevel = 1;
 			addChild(item);
 		}
+	}
+	
+	public int calculateLevel(DataItem item) 
+	{
+		int cnt = 0;
+		
+		while(item.g)
+		//TODO 
+		
+		return 0;
 	}
 
 }

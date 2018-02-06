@@ -22,7 +22,6 @@ public class OrderedDataItem {
 		this.title = item.getTitle();
 		this.itemText = item.getItemText();
 		this.itemId = item.getItemId();
-		this.itemLevel = item.getItemLevel();
 		this.nodeCnt = item.getNodeCnt();
 		this.itemColor = item.getItemColor();
 		
