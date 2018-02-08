@@ -22,26 +22,22 @@ public class DataStorage {
 	}
 
 	public void clearData() {
-		nodeList = new ArrayList<>();
+		dataTree = null;
 		transferInfoToListeners(ChangeType.Clear, null, null);
 	}
 	
-	public void addChild(DataItem node) {
+	public void addSilbling(DataItem node, UUID parent) {
 
 		node.itemId = UUID.randomUUID();
-		nodeList.add(node);
-	
+		addToTree(parent, node, true);
 		transferInfoToListeners(ChangeType.Add, node, null);
-	
 	}
 	
-	public void addChild(DataItem node, int parentIdx) {
+	public void addChild(DataItem node, UUID parent) {
 		
 		node.itemId = UUID.randomUUID();
-		nodeList.add(parentIdx + 1, node);
-		UUID parentId = nodeList.get(parentIdx).itemId;
-		
-		transferInfoToListeners(ChangeType.AddToPresent, node, parentId);
+		addToTree(parent, node, false);
+		transferInfoToListeners(ChangeType.AddToPresent, node, parent);
 
 	}
 
@@ -52,7 +48,7 @@ public class DataStorage {
 	}
 	
 	public boolean listIsEmpty() {
-		return nodeList.isEmpty();
+		return (dataTree == null);
 	}
 
 	public void addChildren(List<DataItem> list) {
@@ -63,7 +59,7 @@ public class DataStorage {
 	}
 
 	public DataItem getRootNode() {
-		return nodeList.get(0);
+		return dataTree.getData();
 	}
 
 	public int getLastAddNodeId() {
@@ -71,17 +67,16 @@ public class DataStorage {
 	}
 
 	public Optional<String> getText(UUID nodeId) {
-		for (DataItem item : nodeList) {
-			if (item.itemId == nodeId) {
-				return Optional.of(item.itemText);
-			}
+		
+		Optional<String> res = Optional.empty();
+		Optional<TreeNode<DataItem>> node = getNodeByUUID(dataTree, nodeId);
+		
+		if(node.isPresent()) 
+		{
+			return Optional.ofNullable(node.get().getData().getItemText());
 		}
-		return Optional.empty();
-	}
-
-	public void cleanList() {
-		nodeList.clear();
-		lastAddNodeId = 0;
+		
+		return res;
 	}
 	
 	public void addListener(ListChangeListener currListener){
@@ -89,11 +84,11 @@ public class DataStorage {
 	}
 	
 	public void modifyText(UUID nodeId, String newText){
-		for(DataItem item : nodeList){
-			if(item.getItemId() == nodeId){
-				item.itemText = newText;
-			}
-		}
+		
+		Optional<TreeNode<DataItem>> node = getNodeByUUID(dataTree, nodeId);
+		
+		node.ifPresent( a -> a.getData().setItemText(newText));
+		
 	}
 	
 	public void modifyTitle(UUID nodeId, String title, NodeColor currColor){
@@ -135,29 +130,85 @@ public class DataStorage {
 		
 		if(parentId != null){
 			
-			Integer searchIdx = null;
-			for(int idx = 0; idx < nodeList.size();idx++)
-			{
-				if(nodeList.get(idx).getItemId() == parentId){
-					searchIdx = idx;
-					break;
-				}
-			}
-			addChild(item,searchIdx);
+			addChild(item, parentId);
 		}
 		else{
 			addChild(item);
 		}
 	}
 	
-	public int calculateLevel(DataItem item) 
+	Optional<TreeNode<DataItem>> getNodeByUUID(TreeNode<DataItem> start, UUID nodeId)
 	{
+		Optional<TreeNode<DataItem>> res = Optional.empty();
+		for(TreeNode<DataItem> child : start.getChildren()) 
+		{
+			if(child.getData().itemId.equals(nodeId)) 
+			{
+				res = Optional.of(child);
+				break;
+			}
+			else 
+			{
+				Optional<TreeNode<DataItem>> tempRes = getNodeByUUID(child, nodeId);
+				
+				if(tempRes.isPresent()) 
+				{
+					res = Optional.of(tempRes.get());
+					break;
+				}
+			}
+		}
+		
+		return res;
+	}
+	
+	public int calculateLevel(TreeNode<DataItem> start) 
+	{
+		TreeNode<DataItem> temp = start;
 		int cnt = 0;
 		
-		while(item.g)
-		//TODO 
 		
-		return 0;
+		while(temp.getParent() != null) 
+		{
+			cnt = cnt + 1;
+			temp = temp.getParent();
+		}
+		
+		return cnt;
+	}
+	
+	void addToTree(UUID parent, DataItem item, boolean silbling)
+	{
+		if(dataTree == null) 
+		{
+			dataTree = new TreeNode<DataItem>(item);
+		}
+		else 
+		{
+			Optional<TreeNode<DataItem>> parentNode = getNodeByUUID(dataTree, parent);
+			
+			if(parentNode.isPresent()) 
+			{
+				if (silbling) 
+				{
+					parentNode = Optional.ofNullable(parentNode.get().getParent());
+				}
+				
+				parentNode.ifPresent(a -> a.addChild(item));
+				
+			}
+			
+			
+		}
+		
+	}
+	
+	void createTreeIfAbsent(DataItem item)
+	{
+		if(dataTree == null) 
+		{
+			dataTree = new TreeNode<DataItem>(item);
+		}
 	}
 
 }
