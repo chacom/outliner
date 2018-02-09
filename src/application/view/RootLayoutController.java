@@ -8,7 +8,7 @@ import HolLib.HolLibIF;
 import HolLib.HolLibImpl;
 import application.JsonExport;
 import application.MainApp;
-import application.model.DataItem;
+import application.model.DataItemExt;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
@@ -53,9 +53,9 @@ public class RootLayoutController {
 			mainApp.getDataStorage().clearData();
 			HolLibIF myHolLib = new HolLibImpl();
 			
-			List<DataItem> items = myHolLib.read(selectedFile.getPath());
+			List<DataItemExt> items = myHolLib.read(selectedFile.getPath());
 			lastUsedFilePath = selectedFile.getPath();
-			mainApp.getDataStorage().addChildren(items);
+			mainApp.getDataStorage().createTree(items);
 		}
 	}
 
@@ -63,7 +63,7 @@ public class RootLayoutController {
 	private void handleSaveAction() throws Exception {
 		if(lastUsedFilePath != null){
 			HolLibIF myHolLib = new HolLibImpl();
-			List<DataItem> data = mainApp.getDataStorage().getData();
+			List<DataItemExt> data = mainApp.getDataStorage().getData();
 			
 			myHolLib.write(lastUsedFilePath, data);
 		}
@@ -82,7 +82,7 @@ public class RootLayoutController {
 		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
 			
-			List<DataItem> data = mainApp.getDataStorage().getData();
+			List<DataItemExt> data = mainApp.getDataStorage().getData();
 			
 			jsonExport.export(selectedFile.getPath(), data);
 		}
@@ -99,11 +99,9 @@ public class RootLayoutController {
 		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
 			HolLibIF myHolLib = new HolLibImpl();
-			List<DataItem> data = mainApp.getDataStorage().getData();
+			List<DataItemExt> data = mainApp.getDataStorage().getData();
 			myHolLib.write(selectedFile.getPath(), data);
-		}
-		
-		
+		}	
 	}
 
 	@FXML

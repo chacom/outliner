@@ -12,7 +12,7 @@ public class DataStorageTest {
 	public void testCalculateLevel() throws Exception {
 		DataStorage storage = new DataStorage();
 		
-		storage.dataTree
+		
 		throw new RuntimeException("not yet implemented");
 	}
 

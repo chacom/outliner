@@ -17,10 +17,11 @@ public class TreeNode<T>{
         this.children.add(child);
     }
 
-    public void addChild(T data) {
+    public TreeNode<T> addChild(T data) {
         TreeNode<T> newChild = new TreeNode<>(data);
         newChild.setParent(this);
         children.add(newChild);
+        return newChild;
     }
 
     public void addChildren(List<TreeNode<T>> children) {
@@ -34,6 +35,13 @@ public class TreeNode<T>{
         return children;
     }
 
+    public TreeNode<T> removeChild(TreeNode<T> child) {
+        
+    	TreeNode<T> parent = child.parent;
+    	parent.children.remove(child);
+    	return child;
+    }
+    
     public T getData() {
         return data;
     }

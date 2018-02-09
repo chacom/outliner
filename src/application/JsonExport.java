@@ -12,12 +12,13 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import application.model.DataItem;
+import application.model.DataItemExt;
 
 public class JsonExport {
 
 	OrderedDataItemExt baseItem = null;
 	
-	public void export(String filePath, List<DataItem> data) throws IOException {
+	public void export(String filePath, List<DataItemExt> data) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(new File(filePath));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos, "UTF-8"));
@@ -33,11 +34,11 @@ public class JsonExport {
 	}
 	
 	
-	OrderedDataItem createOrderedDataitems(List<DataItem> data){
+	OrderedDataItem createOrderedDataitems(List<DataItemExt> data){
 		
 		OrderedDataItemExt lastItem = null;
 		
-		for(DataItem item : data){
+		for(DataItemExt item : data){
 			OrderedDataItemExt ordItem = new OrderedDataItemExt(item);
 			
 			if(baseItem == null){

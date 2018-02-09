@@ -12,8 +12,6 @@ public class DataStorage {
 
 	int lastAddNodeId = 0;
 
-	//List<DataItem> nodeList = new ArrayList<>();
-	
 	TreeNode<DataItem> dataTree;
 	List<ListChangeListener> listeners = new ArrayList<>();
 
@@ -51,11 +49,12 @@ public class DataStorage {
 		return (dataTree == null);
 	}
 
-	public void addChildren(List<DataItem> list) {
+	public void createTree(List<DataItemExt> list) {
 
-		for (DataItem item : list) {
-			addChild(item);
-		}
+		ConvertTreeData conv = new ConvertTreeData();
+		
+		dataTree = conv.getTree(list);
+		
 	}
 
 	public DataItem getRootNode() {
@@ -92,49 +91,40 @@ public class DataStorage {
 	}
 	
 	public void modifyTitle(UUID nodeId, String title, NodeColor currColor){
-		for(DataItem item : nodeList){
-			if(item.getItemId() == nodeId){
-				item.title = title;
-				item.itemColor = currColor;
-			}
+		Optional<TreeNode<DataItem>> item = getNodeByUUID(dataTree, nodeId);
+		
+		if(item.isPresent()) 
+		{
+			item.get().getData().setTitle(title);
+			item.get().getData().setItemColor(currColor);
+			
 		}
+		
 	}
 	
-	public List<DataItem> getData(){
-		return nodeList;
+	public List<DataItemExt> getData(){
+		ConvertTreeData conv = new ConvertTreeData();
+		
+		return conv.getList(dataTree);
 	}
 	
 	public void removeNode(UUID nodeId)
 	{	
-		Integer searchIdx = null;
-		for(int idx = 0; idx < nodeList.size();idx++)
+		Optional<TreeNode<DataItem>> item = getNodeByUUID(dataTree, nodeId);
+		
+		if(item.isPresent()) 
 		{
-			if(nodeList.get(idx).getItemId() == nodeId){
-				searchIdx = idx;
-				break;
-			}
+			TreeNode<DataItem> x = item.get().removeChild(item.get());
+			transferInfoToListeners(ChangeType.Remove, x.getData(), null);
 		}
-		
-		if(searchIdx != null){
-			DataItem temp = nodeList.get(searchIdx);
-			nodeList.remove(searchIdx.intValue());
-			
-			transferInfoToListeners(ChangeType.Remove, temp, null);
-		}
-		
 	}
 	
 	public void addNewNode(String title, UUID parentId){
 		
 		DataItem item = new DataItem(title, NodeColor.Black, "");
 		
-		if(parentId != null){
-			
-			addChild(item, parentId);
-		}
-		else{
-			addChild(item);
-		}
+		addChild(item, parentId);
+	
 	}
 	
 	Optional<TreeNode<DataItem>> getNodeByUUID(TreeNode<DataItem> start, UUID nodeId)

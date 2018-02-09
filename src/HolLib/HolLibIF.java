@@ -3,10 +3,11 @@ package HolLib;
 import java.util.List;
 
 import application.model.DataItem;
+import application.model.DataItemExt;
 
 public interface HolLibIF {
 	
-	List<DataItem> read(String FilePath) throws Exception;
-	boolean write(String FilePath, List<DataItem> data) throws Exception;
+	List<DataItemExt> read(String FilePath) throws Exception;
+	boolean write(String FilePath, List<DataItemExt> data) throws Exception;
 
 }

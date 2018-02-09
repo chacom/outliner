@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import application.model.DataItem;
+import application.model.DataItemExt;
 
 public class HolLibImpl implements HolLibIF {
 	
@@ -24,7 +25,7 @@ public class HolLibImpl implements HolLibIF {
 	
 	ArrayList<EntryData> entries = new ArrayList<>();
 	
-	ArrayList<DataItem> dataItems;
+	ArrayList<DataItemExt> dataItems;
 	
 	public HolLibImpl() {
 		colorMap.put("000000", NodeColor.Black);
@@ -38,7 +39,7 @@ public class HolLibImpl implements HolLibIF {
 	}
 
 	@Override
-	public List<DataItem> read(String FilePath) throws Exception {
+	public List<DataItemExt> read(String FilePath) throws Exception {
 		
 		dataItems = new ArrayList<>();
 		ArrayList<String> InputData = new ArrayList<>();
@@ -81,9 +82,9 @@ public class HolLibImpl implements HolLibIF {
 			EntryData entry = entries.get(idx);
 			
 			String currNodeLine = input.get(entry.start);
-			DataItem node = parseNodeLine(currNodeLine);
+			DataItemExt node = parseNodeLine(currNodeLine);
 			
-			DataItem currItem = new DataItem(node);
+			DataItemExt currItem = new DataItemExt(node);
 			currItem.setItemId(UUID.randomUUID());
 			int endIdx;
 			
@@ -108,9 +109,9 @@ public class HolLibImpl implements HolLibIF {
 		
 	}
 	
-	DataItem parseNodeLine(String line)
+	DataItemExt parseNodeLine(String line)
 	{
-		DataItem di = new DataItem();
+		DataItemExt di = new DataItemExt();
 		String temp = line.substring(line.indexOf('\t')+1);
 		int level = CheckLevel(line);
 		
@@ -147,7 +148,7 @@ public class HolLibImpl implements HolLibIF {
 	}
 	
 	@Override
-	public boolean write(String FilePath, List<DataItem> data) throws IOException {
+	public boolean write(String FilePath, List<DataItemExt> data) throws IOException {
  		FileOutputStream fos = new FileOutputStream(new File(FilePath));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(fos,"UTF-8"));
 		
@@ -158,7 +159,7 @@ public class HolLibImpl implements HolLibIF {
 		bw.write("HO:AUTO_NUMBERING=OFF\n");
 		
 		for(int idx = 0; idx < data.size();idx++){
-			DataItem item = data.get(idx);
+			DataItemExt item = data.get(idx);
 			if(item.getItemLevel() > 0){
 				String levStr = buildLevelString(item.getItemLevel());
 				String colStr = buildColorString(item.getItemColor());
