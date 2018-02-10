@@ -39,9 +39,9 @@ public class DataStorage {
 
 	}
 
-	private void transferInfoToListeners(ChangeType type, DataItem item, UUID extInfo) {
+	private void transferInfoToListeners(ChangeType type, DataItem item, UUID parent) {
 		for(ListChangeListener listener : listeners){
-			listener.onChange(type, item, extInfo);
+			listener.onChange(type, item, parent);
 		}
 	}
 	
@@ -55,6 +55,8 @@ public class DataStorage {
 		
 		dataTree = conv.getTree(list);
 		
+		publishNewNode(dataTree);
+		
 	}
 
 	public DataItem getRootNode() {
@@ -63,6 +65,17 @@ public class DataStorage {
 
 	public int getLastAddNodeId() {
 		return lastAddNodeId;
+	}
+	
+	void publishNewNode(TreeNode<DataItem> node) 
+	{
+		if(node.getParent() != null) {
+			transferInfoToListeners(ChangeType.Add, node.getData(), node.getParent().getData().getItemId());
+		}
+
+		for (TreeNode<DataItem> child : node.getChildren()) {
+			publishNewNode(child);
+		}
 	}
 
 	public Optional<String> getText(UUID nodeId) {
@@ -152,20 +165,7 @@ public class DataStorage {
 		return res;
 	}
 	
-	public int calculateLevel(TreeNode<DataItem> start) 
-	{
-		TreeNode<DataItem> temp = start;
-		int cnt = 0;
-		
-		
-		while(temp.getParent() != null) 
-		{
-			cnt = cnt + 1;
-			temp = temp.getParent();
-		}
-		
-		return cnt;
-	}
+	
 	
 	void addToTree(UUID parent, DataItem item, boolean silbling)
 	{
@@ -185,12 +185,8 @@ public class DataStorage {
 				}
 				
 				parentNode.ifPresent(a -> a.addChild(item));
-				
 			}
-			
-			
 		}
-		
 	}
 	
 	void createTreeIfAbsent(DataItem item)

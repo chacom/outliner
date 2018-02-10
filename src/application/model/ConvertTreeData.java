@@ -1,15 +1,34 @@
 package application.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ConvertTreeData {
 	
 	List<DataItemExt> getList(TreeNode<DataItem> tree){
-	
-		return null;
+		
+		List<DataItemExt> result = new ArrayList<>();
+		
+		parseTree(tree, result, 0);
+		return result;
 	}
 	
-	void parseTree(TreeNode<DataItem> node, List<DataItemExt> list, int level){
+	public int calculateLevel(TreeNode<DataItem> start) 
+	{
+		TreeNode<DataItem> temp = start;
+		int cnt = 0;
+		
+		
+		while(temp.getParent() != null) 
+		{
+			cnt = cnt + 1;
+			temp = temp.getParent();
+		}
+		
+		return cnt;
+	}
+	
+	public void parseTree(TreeNode<DataItem> node, List<DataItemExt> list, int level){
 		
 		DataItemExt temp = new DataItemExt(node.getData(), level);
 		list.add(temp);
@@ -19,16 +38,18 @@ public class ConvertTreeData {
 		}
 	} 
 	
-	TreeNode<DataItem> getTree(List<DataItemExt> list){
+	public TreeNode<DataItem> getTree(List<DataItemExt> list){
 		
 		int lastLevel = -1;
 		TreeNode<DataItem> node = null;
+		TreeNode<DataItem> root = null;
 		
 		
 		for ( DataItemExt item : list) {
 			
 			if(node == null) {
 				node = new TreeNode<DataItem>(item);
+				root = node;
 				lastLevel = item.level;
 				continue;
 			}
@@ -51,11 +72,19 @@ public class ConvertTreeData {
 					node = node.getParent();
 				}
 				
-				node.addChild(item);
+				try 
+				{
+					node = node.getParent().addChild(item);
+					lastLevel = item.level;	
+				}
+				catch (Exception e) {
+					System.out.println(e.getMessage());
+				}
+				
 			}
 			
 		}
-		return null;
+		return root;
 	}
 	
 
