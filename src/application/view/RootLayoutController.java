@@ -90,7 +90,6 @@ public class RootLayoutController {
 
 	@FXML
 	private void handleSaveAsAction() throws Exception {
-		System.out.println("handleSaveAsAction");
 		
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Save file as");

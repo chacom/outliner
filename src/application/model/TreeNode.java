@@ -35,11 +35,9 @@ public class TreeNode<T>{
         return children;
     }
 
-    public TreeNode<T> removeChild(TreeNode<T> child) {
-        
-    	TreeNode<T> parent = child.parent;
-    	parent.children.remove(child);
-    	return child;
+    public void removeChild(TreeNode<T> child) {
+  	    	TreeNode<T> parent = child.parent;
+	    	parent.children.remove(child);
     }
     
     public T getData() {

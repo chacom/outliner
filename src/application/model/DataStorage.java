@@ -28,14 +28,14 @@ public class DataStorage {
 
 		node.itemId = UUID.randomUUID();
 		addToTree(parent, node, true);
-		transferInfoToListeners(ChangeType.Add, node, null);
+		transferInfoToListeners(ChangeType.Add, node, parent);
 	}
 	
 	public void addChild(DataItem node, UUID parent) {
 		
 		node.itemId = UUID.randomUUID();
 		addToTree(parent, node, false);
-		transferInfoToListeners(ChangeType.AddToPresent, node, parent);
+		transferInfoToListeners(ChangeType.Add, node, parent);
 
 	}
 
@@ -72,6 +72,9 @@ public class DataStorage {
 		if(node.getParent() != null) {
 			transferInfoToListeners(ChangeType.Add, node.getData(), node.getParent().getData().getItemId());
 		}
+		else {
+			transferInfoToListeners(ChangeType.Add, node.getData(), null);
+		}
 
 		for (TreeNode<DataItem> child : node.getChildren()) {
 			publishNewNode(child);
@@ -80,15 +83,14 @@ public class DataStorage {
 
 	public Optional<String> getText(UUID nodeId) {
 		
-		Optional<String> res = Optional.empty();
-		Optional<TreeNode<DataItem>> node = getNodeByUUID(dataTree, nodeId);
+		ArrayList<TreeNode<DataItem>> res = getNodeByUUID(dataTree, nodeId);
 		
-		if(node.isPresent()) 
+		if(!res.isEmpty()) 
 		{
-			return Optional.ofNullable(node.get().getData().getItemText());
+			return Optional.ofNullable(res.get(0).getData().itemText);
 		}
 		
-		return res;
+		return Optional.empty();
 	}
 	
 	public void addListener(ListChangeListener currListener){
@@ -97,19 +99,22 @@ public class DataStorage {
 	
 	public void modifyText(UUID nodeId, String newText){
 		
-		Optional<TreeNode<DataItem>> node = getNodeByUUID(dataTree, nodeId);
+		ArrayList<TreeNode<DataItem>> res = getNodeByUUID(dataTree, nodeId);
 		
-		node.ifPresent( a -> a.getData().setItemText(newText));
-		
+		if(!res.isEmpty()) 
+		{
+			res.get(0).getData().setItemText(newText);
+		}
 	}
 	
 	public void modifyTitle(UUID nodeId, String title, NodeColor currColor){
-		Optional<TreeNode<DataItem>> item = getNodeByUUID(dataTree, nodeId);
 		
-		if(item.isPresent()) 
+		ArrayList<TreeNode<DataItem>> res = getNodeByUUID(dataTree, nodeId);
+		
+		if(!res.isEmpty()) 
 		{
-			item.get().getData().setTitle(title);
-			item.get().getData().setItemColor(currColor);
+			res.get(0).getData().setTitle(title);
+			res.get(0).getData().setItemColor(currColor);
 			
 		}
 		
@@ -123,44 +128,51 @@ public class DataStorage {
 	
 	public void removeNode(UUID nodeId)
 	{	
-		Optional<TreeNode<DataItem>> item = getNodeByUUID(dataTree, nodeId);
 		
-		if(item.isPresent()) 
-		{
-			TreeNode<DataItem> x = item.get().removeChild(item.get());
-			transferInfoToListeners(ChangeType.Remove, x.getData(), null);
+		ArrayList<TreeNode<DataItem>> res = getNodeByUUID(dataTree, nodeId);
+		
+		if(!res.isEmpty()) 
+		{	
+			TreeNode<DataItem> temp = res.get(0);
+			temp.removeChild(temp);
+			transferInfoToListeners(ChangeType.Remove, temp.getData(), null);
 		}
 	}
 	
-	public void addNewNode(String title, UUID parentId){
+	public void addNewNode(String title, UUID parentId, boolean silbling){
 		
 		DataItem item = new DataItem(title, NodeColor.Black, "");
 		
-		addChild(item, parentId);
+		if(silbling) {
+			addSilbling(item, parentId);
+		}
+		else {
+			addChild(item, parentId);
+		}
 	
 	}
 	
-	Optional<TreeNode<DataItem>> getNodeByUUID(TreeNode<DataItem> start, UUID nodeId)
-	{
-		Optional<TreeNode<DataItem>> res = Optional.empty();
-		for(TreeNode<DataItem> child : start.getChildren()) 
-		{
-			if(child.getData().itemId.equals(nodeId)) 
+	void findNodeByUUID(ArrayList<TreeNode<DataItem>> res, TreeNode<DataItem> node, UUID nodeId){
+		
+		//System.out.println("Search: " + nodeId);
+		//System.out.println("Find: " + node.getData().getItemId());
+
+		if(node.getData().itemId.equals(nodeId)) {
+			res.add(node);
+		}
+		else {
+			for(TreeNode<DataItem> child : node.getChildren()) 
 			{
-				res = Optional.of(child);
-				break;
-			}
-			else 
-			{
-				Optional<TreeNode<DataItem>> tempRes = getNodeByUUID(child, nodeId);
-				
-				if(tempRes.isPresent()) 
-				{
-					res = Optional.of(tempRes.get());
-					break;
-				}
+				findNodeByUUID(res, child, nodeId);				
 			}
 		}
+	}
+	
+	ArrayList<TreeNode<DataItem>> getNodeByUUID(TreeNode<DataItem> start, UUID nodeId)
+	{
+		ArrayList<TreeNode<DataItem>> res = new ArrayList<>();
+
+		findNodeByUUID(res, start, nodeId);
 		
 		return res;
 	}
@@ -175,16 +187,17 @@ public class DataStorage {
 		}
 		else 
 		{
-			Optional<TreeNode<DataItem>> parentNode = getNodeByUUID(dataTree, parent);
+			ArrayList<TreeNode<DataItem>> res = getNodeByUUID(dataTree, parent);
 			
-			if(parentNode.isPresent()) 
+			if(!res.isEmpty()) 
 			{
 				if (silbling) 
 				{
-					parentNode = Optional.ofNullable(parentNode.get().getParent());
+					res.get(0).getParent().addChild(item);
 				}
-				
-				parentNode.ifPresent(a -> a.addChild(item));
+				else {
+					res.get(0).addChild(item);
+				}
 			}
 		}
 	}

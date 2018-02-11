@@ -72,14 +72,8 @@ public class ConvertTreeData {
 					node = node.getParent();
 				}
 				
-				try 
-				{
-					node = node.getParent().addChild(item);
-					lastLevel = item.level;	
-				}
-				catch (Exception e) {
-					System.out.println(e.getMessage());
-				}
+				node = node.getParent().addChild(item);
+				lastLevel = item.level;	
 				
 			}
 			

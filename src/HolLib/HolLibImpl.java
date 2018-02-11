@@ -160,7 +160,7 @@ public class HolLibImpl implements HolLibIF {
 		
 		for(int idx = 0; idx < data.size();idx++){
 			DataItemExt item = data.get(idx);
-			if(item.getItemLevel() > 0){
+			if(item.getItemLevel() >= 0){
 				String levStr = buildLevelString(item.getItemLevel());
 				String colStr = buildColorString(item.getItemColor());
 				
@@ -184,7 +184,7 @@ public class HolLibImpl implements HolLibIF {
 	}
 	
 	String buildLevelString(int level){
-		String res = "";
+		String res = ".";
 		for(int idx = 0; idx < level; idx++){
 			res = res + ".";
 		}

@@ -1,5 +1,7 @@
 package application.view;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -10,7 +12,6 @@ import application.model.DataItem;
 import application.model.DataStorage;
 import application.model.ExtTreeItem;
 import application.model.ListChangeListener;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -51,19 +52,6 @@ public class OutLinerViewController implements ListChangeListener {
 		treeView.setCellFactory(tv -> new TreeCell<ExtTreeItem>() {
 			
 			private TextField textField;
-			
-		
-			public void updateItem2(ExtTreeItem item, boolean empty) {
-				super.updateItem(item, empty);
-				
-				if (empty) {
-					setText("");
-				} else {
-					setText(item.toString()); // appropriate text for item
-					
-					setTextFill(getTitleColor(item.getColor()));
-				}
-			}
 			
 			@Override
 	        public void startEdit() {
@@ -248,11 +236,11 @@ public class OutLinerViewController implements ListChangeListener {
 		if (currItem != null) {
 			UUID parentId = currItem.getValue().getId();
 			
-			addNewNodeInternal(name, parentId);
+			addNewNodeInternal(name, parentId, false);
 		} else {
 			if (mainApp.getDataStorage().listIsEmpty()) {
 				// Add root node
-				addNewNodeInternal(name, null);
+				addNewNodeInternal(name, null, false);
 			}
 		}
 	}
@@ -266,12 +254,12 @@ public class OutLinerViewController implements ListChangeListener {
 		
 		if (currItem != null) {
 			UUID parentId = currItem.getParent().getValue().getId();
-			addNewNodeInternal(name, parentId);
+			addNewNodeInternal(name, parentId, true);
 			
 		} else {
 			if (mainApp.getDataStorage().listIsEmpty()) {
 				// Add root node
-				addNewNodeInternal(name, null);
+				addNewNodeInternal(name, null, false);
 			}
 		}
 	}
@@ -284,10 +272,10 @@ public class OutLinerViewController implements ListChangeListener {
 		return name;
 	}
 
-	private void addNewNodeInternal(Optional<String> name, UUID parentId) {
+	private void addNewNodeInternal(Optional<String> name, UUID parentId, boolean silbling)  {
 		
 		name.ifPresent((str) -> {
-			mainApp.getDataStorage().addNewNode(str, parentId);
+			mainApp.getDataStorage().addNewNode(str, parentId, silbling);
 		});
 	}
 	
@@ -333,40 +321,6 @@ public class OutLinerViewController implements ListChangeListener {
 		}
 	}
 
-	
-	
-	public void addNode(DataItem item, UUID parentId) {
-		if (root == null) {
-			handleRootNotSet(item);
-			return;
-		}
-
-		if (parentId == null) {
-			ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),
-					item.getItemColor());
-			TreeItem<ExtTreeItem> treeItem = new TreeItem<ExtTreeItem>(extTreeItem);
-
-			root.getChildren().add(treeItem);
-		} else {
-			addRecursiv(root, item, parentId);
-		}
-	}
-
-	private void addRecursiv(TreeItem<ExtTreeItem> treeItem, DataItem item, UUID parentId) {
-		if (treeItem.getValue().getId() != parentId) {
-			ObservableList<TreeItem<ExtTreeItem>> children = treeItem.getChildren();
-
-			for (TreeItem<ExtTreeItem> child : children) {
-				addRecursiv(child, item, parentId);
-			}
-		} else {
-			ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),
-					item.getItemColor());
-			TreeItem<ExtTreeItem> newItem = new TreeItem<ExtTreeItem>(extTreeItem);
-			treeItem.getChildren().add(newItem);
-		}
-	}
-
 	private void handleRootNotSet(DataItem item) {
 
 		ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),
@@ -378,32 +332,38 @@ public class OutLinerViewController implements ListChangeListener {
 		lastItem = newItem;
 	}
 
-	public void addNodeWithLogic(DataItem item, UUID parent) {
-
-		ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),
-				item.getItemColor());
-		TreeItem<ExtTreeItem> newItem = new TreeItem<ExtTreeItem>(extTreeItem);
-
+	public void addNode(DataItem item, UUID parentId) {
 		if (root == null) {
 			handleRootNotSet(item);
 			return;
 		}
+		
+		ExtTreeItem extTreeItem = new ExtTreeItem(item.getTitle(), item.getItemId(),
+				item.getItemColor());
+		TreeItem<ExtTreeItem> treeItem = new TreeItem<ExtTreeItem>(extTreeItem);
+		
+		if (parentId == null) {
+			root.getChildren().add(treeItem);
+		} else {
 
-		TreeItem<ExtTreeItem> foundParent = findItemWithId(root, parent);
+			TreeItem<ExtTreeItem> foundParent = findItemWithId(root, parentId);
 
-		if(foundParent != null) 
-		{
-			foundParent.getChildren().add(newItem);
-			lastItem = newItem;
+			if(foundParent != null) 
+			{
+				foundParent.getChildren().add(treeItem);
+				lastItem = treeItem;
+			}
 		}
-
 	}
 	
 	TreeItem<ExtTreeItem> findItemWithId(TreeItem<ExtTreeItem> lastItem, UUID itemId)
 	{
 		TreeItem<ExtTreeItem> result = null;
+		UUID currId = lastItem.getValue().getId();
 		
-		if(!lastItem.getValue().getId().equals(itemId)) 
+		//System.out.println("CheckID: " + currId);
+		
+		if(!currId.equals(itemId)) 
 		{
 			for(TreeItem<ExtTreeItem> child : lastItem.getChildren()) 
 			{
@@ -421,25 +381,19 @@ public class OutLinerViewController implements ListChangeListener {
 		}
 		
 		return result;
-		
-		
 	}
 
-	private TreeItem<ExtTreeItem> searchTreeItem(TreeItem<ExtTreeItem> baseItem, UUID nodeId) {
-		TreeItem<ExtTreeItem> funcRes = null;
-
+	private void searchTreeItem(List <TreeItem<ExtTreeItem>> res,TreeItem<ExtTreeItem> baseItem, UUID nodeId) {
+		
 		if (baseItem.getValue().getId() != nodeId) {
 			for (TreeItem<ExtTreeItem> item : baseItem.getChildren()) {
-				funcRes = searchTreeItem(item, nodeId);
-				if (funcRes != null) {
-					return funcRes;
-				}
+				searchTreeItem(res, item, nodeId);
 			}
-		} else {
-			return baseItem;
+		} 
+		else {
+			res.add(baseItem);
 		}
-
-		return funcRes;
+		
 	}
 
 	public void setMainApp(MainApp mainApp) {
@@ -448,33 +402,27 @@ public class OutLinerViewController implements ListChangeListener {
 	}
 
 	@Override
-	public void onChange(ChangeType type, DataItem item, UUID parent) {
-		
-		
+	public void onChange(ChangeType type, DataItem item, UUID parentId) {
+				
 		if (type == ChangeType.Clear) {
 			clearRoot();
 		}
 
 		if (type == ChangeType.Add) {
-			addNodeWithLogic(item, parent);
-		}
-
-		
-		if (type == ChangeType.AddToPresent) {
-			UUID tempId = (UUID) parent;
-			TreeItem<ExtTreeItem> searchItem = searchTreeItem(root, tempId);
+			//System.out.println("Parent: " + parentId);
+			//System.out.println("Item: " + item.getItemId());
 			
-			UUID parentId = searchItem.getValue().getId();
 			addNode(item, parentId);
 		}
-
+		
 		if (type == ChangeType.Remove) {
-			TreeItem<ExtTreeItem> foundItem = searchTreeItem(root, item.getItemId());
+			ArrayList<TreeItem<ExtTreeItem>> res = new ArrayList<>();
+			searchTreeItem(res, root, item.getItemId());
 
-			if (foundItem != null) {
-				TreeItem<ExtTreeItem> parentFound = foundItem.getParent();
-				if (parent != null) {
-					parentFound.getChildren().remove(foundItem);
+			if (!res.isEmpty()) {
+				TreeItem<ExtTreeItem> parentFound = res.get(0).getParent();
+				if (parentId != null) {
+					parentFound.getChildren().remove(res.get(0));
 				} else {
 					clearRoot();
 				}
@@ -482,7 +430,6 @@ public class OutLinerViewController implements ListChangeListener {
 		}
 
 		treeView.refresh();
-
 	}
 
 	private void clearRoot() {
