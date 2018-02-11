@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import javax.swing.colorchooser.DefaultColorSelectionModel;
+
 import HolLib.NodeColor;
 import application.MainApp;
 import application.model.ChangeType;
@@ -27,7 +29,6 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class OutLinerViewController implements ListChangeListener {
@@ -45,6 +46,8 @@ public class OutLinerViewController implements ListChangeListener {
 	TreeItem<ExtTreeItem> lastItem;
 	
 	Node lastSelectedNode = null;
+	
+	Color defaultColor = null;
 	
 	
 	@FXML
@@ -81,10 +84,13 @@ public class OutLinerViewController implements ListChangeListener {
 	                    setText(null);
 	                    setGraphic(textField);
 	                } else {
-	                    Color currColor = (Color) getTextFill();
-	                	setText(getString());
-	                    setTextFill(getTitleColor(currColor, item.getColor()));
-	                    setGraphic(getTreeItem().getGraphic());
+	                	if(defaultColor == null) 
+	                	{
+	                		defaultColor = (Color) getTextFill();
+	                	}
+	                	setGraphic(getTreeItem().getGraphic());
+	                    setTextFill(getTitleColor(defaultColor, item.getColor()));
+	                    setText(getString());
 	                }
 	            }
 	        }
@@ -124,39 +130,41 @@ public class OutLinerViewController implements ListChangeListener {
 	}
 
 	Color getTitleColor(Color colorDefault, NodeColor color) {
+		
 		Color funcRes = Color.BLACK;
+		
 		switch (color) {
-		case Black:
-			funcRes = Color.BLACK;
-			break;
-		case Blue:
-			funcRes = Color.BLUE;
-			break;
-		case Cyan:
-			funcRes = Color.CYAN;
-			break;
-		case Green:
-			funcRes = Color.GREEN;
-			break;
-		case Magenta:
-			funcRes = Color.MAGENTA;
-			break;
-		case Red:
-			funcRes = Color.RED;
-			break;
-		case White:
-			funcRes = Color.WHITE;
-			break;
-		case Yellow:
-			funcRes = Color.YELLOW;
-			break;
-		case Default:
-			funcRes = colorDefault;
-			break;
-		default:
-			funcRes = colorDefault;
-			break;
-		}
+			case Black:
+				funcRes = Color.BLACK;
+				break;
+			case Blue:
+				funcRes = Color.BLUE;
+				break;
+			case Cyan:
+				funcRes = Color.CYAN;
+				break;
+			case Green:
+				funcRes = Color.GREEN;
+				break;
+			case Magenta:
+				funcRes = Color.MAGENTA;
+				break;
+			case Red:
+				funcRes = Color.RED;
+				break;
+			case White:
+				funcRes = Color.WHITE;
+				break;
+			case Yellow:
+				funcRes = Color.YELLOW;
+				break;
+			case Default:
+				funcRes = colorDefault;
+				break;
+			default:
+				funcRes = colorDefault;
+				break;
+			}
 		return funcRes;
 	}
 	
@@ -227,6 +235,12 @@ public class OutLinerViewController implements ListChangeListener {
 	private void setColorMagenta(ActionEvent event) {
 		generalColorSetting(event, NodeColor.Magenta);
 	}
+	
+	@FXML
+	private void setColorDefault(ActionEvent event) {
+		generalColorSetting(event, NodeColor.Default);
+	}
+
 
 	@FXML
 	private void addChildrenNodeByUser(ActionEvent event) {

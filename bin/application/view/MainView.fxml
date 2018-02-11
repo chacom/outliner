@@ -32,6 +32,7 @@
                                     <MenuItem mnemonicParsing="false" onAction="#setColorRed" text="Red" />
                                     <MenuItem mnemonicParsing="false" onAction="#setColorWhite" text="White" />
                                     <MenuItem mnemonicParsing="false" onAction="#setColorYellow" text="Yellow" />
+                                    <MenuItem mnemonicParsing="false" onAction="#setColorDefault" text="Default" />
                                 </items>
                               </Menu>
                           </items>
