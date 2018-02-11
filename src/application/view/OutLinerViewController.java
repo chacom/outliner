@@ -27,6 +27,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class OutLinerViewController implements ListChangeListener {
@@ -80,8 +81,9 @@ public class OutLinerViewController implements ListChangeListener {
 	                    setText(null);
 	                    setGraphic(textField);
 	                } else {
-	                    setText(getString());
-	                    setTextFill(getTitleColor(item.getColor()));
+	                    Color currColor = (Color) getTextFill();
+	                	setText(getString());
+	                    setTextFill(getTitleColor(currColor, item.getColor()));
 	                    setGraphic(getTreeItem().getGraphic());
 	                }
 	            }
@@ -109,8 +111,6 @@ public class OutLinerViewController implements ListChangeListener {
 		                        treeView.setEditable(false);
 		                    }
 						}
-						
-						
 					}
 	            });
 	        }
@@ -123,7 +123,7 @@ public class OutLinerViewController implements ListChangeListener {
 
 	}
 
-	Color getTitleColor(NodeColor color) {
+	Color getTitleColor(Color colorDefault, NodeColor color) {
 		Color funcRes = Color.BLACK;
 		switch (color) {
 		case Black:
@@ -150,11 +150,13 @@ public class OutLinerViewController implements ListChangeListener {
 		case Yellow:
 			funcRes = Color.YELLOW;
 			break;
+		case Default:
+			funcRes = colorDefault;
+			break;
 		default:
-			funcRes = Color.BLACK;
+			funcRes = colorDefault;
 			break;
 		}
-
 		return funcRes;
 	}
 	
@@ -183,7 +185,7 @@ public class OutLinerViewController implements ListChangeListener {
 
 	@FXML
 	private void requestContextMenu(ActionEvent event) {
-		System.out.println("requestContextMenu");
+		//System.out.println("requestContextMenu");
 	}
 
 	@FXML
@@ -361,8 +363,6 @@ public class OutLinerViewController implements ListChangeListener {
 		TreeItem<ExtTreeItem> result = null;
 		UUID currId = lastItem.getValue().getId();
 		
-		//System.out.println("CheckID: " + currId);
-		
 		if(!currId.equals(itemId)) 
 		{
 			for(TreeItem<ExtTreeItem> child : lastItem.getChildren()) 
@@ -409,9 +409,6 @@ public class OutLinerViewController implements ListChangeListener {
 		}
 
 		if (type == ChangeType.Add) {
-			//System.out.println("Parent: " + parentId);
-			//System.out.println("Item: " + item.getItemId());
-			
 			addNode(item, parentId);
 		}
 		

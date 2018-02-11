@@ -8,5 +8,6 @@ public enum NodeColor {
 	Blue,
 	Red,
 	Cyan,
-	Magenta
+	Magenta,
+	Default
 }

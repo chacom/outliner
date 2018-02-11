@@ -125,9 +125,9 @@ public class HolLibImpl implements HolLibIF {
 		}
 		else
 		{
-			di.setItemColor(NodeColor.Black);
+			di.setItemColor(NodeColor.Default);
 		}
-		System.out.println(split);
+		//System.out.println(split);
 		return di;
 	}
 
