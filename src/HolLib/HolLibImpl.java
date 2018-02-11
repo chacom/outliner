@@ -16,7 +16,6 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import application.model.DataItem;
 import application.model.DataItemExt;
 
 public class HolLibImpl implements HolLibIF {
@@ -36,6 +35,8 @@ public class HolLibImpl implements HolLibIF {
 		colorMap.put("ff0000", NodeColor.Red);
 		colorMap.put("ffffff", NodeColor.White);
 		colorMap.put("ffff00", NodeColor.Yellow);
+		colorMap.put("", NodeColor.Default);
+		
 	}
 
 	@Override

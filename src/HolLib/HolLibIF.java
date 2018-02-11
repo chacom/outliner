@@ -2,7 +2,6 @@ package HolLib;
 
 import java.util.List;
 
-import application.model.DataItem;
 import application.model.DataItemExt;
 
 public interface HolLibIF {
