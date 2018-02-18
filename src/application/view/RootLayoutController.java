@@ -8,6 +8,7 @@ import HolLib.HolLibIF;
 import HolLib.HolLibImpl;
 import application.JsonExport;
 import application.MainApp;
+import application.MarkdownExport;
 import application.model.DataItemExt;
 import javafx.fxml.FXML;
 import javafx.stage.FileChooser;
@@ -15,12 +16,14 @@ import javafx.stage.FileChooser.ExtensionFilter;
 
 public class RootLayoutController {
 
+	String lastPath = null;
+	
 	private MainApp mainApp;
 	String lastUsedFilePath = null;
 
 	@FXML
 	private void initialize() {
-		// Initialize
+	
 	}
 
 	public void setMainApp(MainApp mainApp) {
@@ -38,10 +41,8 @@ public class RootLayoutController {
 			mainApp.getDataStorage().clearData();
 			lastUsedFilePath = selectedFile.getPath();
 		}
-		
 	}
-	
-	
+		
 
 	@FXML
 	private void handleOpenFile() throws Exception {
@@ -67,24 +68,32 @@ public class RootLayoutController {
 			
 			myHolLib.write(lastUsedFilePath, data);
 		}
-			
 	}
 	
 	@FXML
 	private void handleExport() throws IOException{
-		JsonExport jsonExport = new JsonExport();
-		
 		
 		FileChooser fileChooser = new FileChooser();
 		fileChooser.setTitle("Export as JSON");
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("JSON", "*.json"));
+		fileChooser.getExtensionFilters().add(new ExtensionFilter("Markdown", "*.md"));
 		
 		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
 			
 			List<DataItemExt> data = mainApp.getDataStorage().getData();
 			
-			jsonExport.export(selectedFile.getPath(), data);
+			if(selectedFile.getPath().contains(".json")) 
+			{
+				JsonExport jsonExport = new JsonExport();
+				jsonExport.export(selectedFile.getPath(), data);
+			}
+			
+			if(selectedFile.getPath().contains(".md")) 
+			{
+				MarkdownExport mdExport = new MarkdownExport();
+				mdExport.export(selectedFile.getPath(), data);
+			}
 		}
 	}
 
@@ -108,8 +117,4 @@ public class RootLayoutController {
 		mainApp.getPrimaryStage().close();
 	}
 	
-	void clearData()
-	{
-		
-	}
 }
