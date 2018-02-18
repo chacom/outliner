@@ -20,7 +20,7 @@ public class RootLayoutController {
 
 	@FXML
 	private void initialize() {
-		System.out.println("initialize");
+		// Initialize
 	}
 
 	public void setMainApp(MainApp mainApp) {
@@ -105,7 +105,7 @@ public class RootLayoutController {
 
 	@FXML
 	private void handleCloseAction() {
-		System.out.println("handleCloseAction");
+		mainApp.getPrimaryStage().close();
 	}
 	
 	void clearData()
