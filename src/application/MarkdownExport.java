@@ -9,8 +9,9 @@ import java.util.List;
 
 import application.model.DataItemExt;
 
-public class MarkdownExport {
+public class MarkdownExport implements Export{
 
+	@Override
 	public void export(String filePath, List<DataItemExt> data) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(new File(filePath));

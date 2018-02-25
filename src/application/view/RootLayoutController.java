@@ -6,6 +6,8 @@ import java.util.List;
 
 import HolLib.HolLibIF;
 import HolLib.HolLibImpl;
+import application.AsciiDocTable;
+import application.CsvExport;
 import application.JsonExport;
 import application.MainApp;
 import application.MarkdownExport;
@@ -77,6 +79,9 @@ public class RootLayoutController {
 		fileChooser.setTitle("Export as JSON");
 		fileChooser.getExtensionFilters().addAll(new ExtensionFilter("JSON", "*.json"));
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("Markdown", "*.md"));
+		fileChooser.getExtensionFilters().add(new ExtensionFilter("CSV special", "*.csv"));
+		fileChooser.getExtensionFilters().add(new ExtensionFilter("Asciidoc table special", "*.adoc"));
+		
 		
 		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
@@ -94,6 +99,19 @@ public class RootLayoutController {
 				MarkdownExport mdExport = new MarkdownExport();
 				mdExport.export(selectedFile.getPath(), data);
 			}
+			
+			if(selectedFile.getPath().contains(".csv")) 
+			{
+				CsvExport mdExport = new CsvExport();
+				mdExport.export(selectedFile.getPath(), data);
+			}
+			
+			if(selectedFile.getPath().contains(".adoc")) 
+			{
+				AsciiDocTable mdExport = new AsciiDocTable();
+				mdExport.export(selectedFile.getPath(), data);
+			}
+						
 		}
 	}
 

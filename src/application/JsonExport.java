@@ -14,10 +14,11 @@ import com.google.gson.GsonBuilder;
 import application.model.DataItem;
 import application.model.DataItemExt;
 
-public class JsonExport {
+public class JsonExport implements Export{
 
 	OrderedDataItemExt baseItem = null;
 	
+	@Override
 	public void export(String filePath, List<DataItemExt> data) throws IOException {
 
 		FileOutputStream fos = new FileOutputStream(new File(filePath));
