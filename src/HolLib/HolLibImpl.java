@@ -102,8 +102,9 @@ public class HolLibImpl implements HolLibIF {
 			for(int cnt = entry.start + 1 ; cnt <= endIdx; cnt++){
 				currItem.setItemText(currItem.getItemText()+ input.get(cnt) + "\n");
 			}
-			currItem.setItemLevel(entry.level);
 			
+			currItem.setItemLevel(entry.level);
+			currItem.setItemText(currItem.getItemText().trim() + "\n");
 			dataItems.add(currItem);
 		}
 	

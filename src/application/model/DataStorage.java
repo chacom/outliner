@@ -103,7 +103,8 @@ public class DataStorage {
 		
 		if(!res.isEmpty()) 
 		{
-			res.get(0).getData().setItemText(newText);
+			
+			res.get(0).getData().setItemText(newText.trim());
 		}
 	}
 	

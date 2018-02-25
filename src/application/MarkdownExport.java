@@ -30,7 +30,7 @@ public class MarkdownExport {
 	void exportTitle(BufferedWriter bw, String title, int level) throws IOException {
 		
 		StringBuilder sb = new StringBuilder();
-		sb.append("#");
+		sb.append("\n#");
 		
 		for(int i = 0; i < level; i++) {
 			sb.append("#");
@@ -44,6 +44,9 @@ public class MarkdownExport {
 	
 	void exportText(BufferedWriter bw, String text) throws IOException {
 		
+		if(!text.startsWith("\n")) {
+			bw.write("\n");
+		}
 		bw.write(text);
 	}
 }

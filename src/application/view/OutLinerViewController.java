@@ -5,8 +5,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import javax.swing.colorchooser.DefaultColorSelectionModel;
-
 import HolLib.NodeColor;
 import application.MainApp;
 import application.model.ChangeType;
@@ -44,8 +42,6 @@ public class OutLinerViewController implements ListChangeListener {
 	TreeItem<ExtTreeItem> root;
 
 	TreeItem<ExtTreeItem> lastItem;
-	
-	Node lastSelectedNode = null;
 	
 	Color defaultColor = null;
 	
@@ -176,7 +172,7 @@ public class OutLinerViewController implements ListChangeListener {
 	@FXML
 	private void handleItemSelection(MouseEvent event) {
 		Node node = event.getPickResult().getIntersectedNode();
-		lastSelectedNode = node;
+		
 		if (node instanceof Text || (node instanceof TreeCell && ((TreeCell) node).getText() != null)) {
 			TreeItem<ExtTreeItem> x = (TreeItem<ExtTreeItem>) treeView.getSelectionModel().getSelectedItem();
 			if (x != null) {
@@ -187,6 +183,9 @@ public class OutLinerViewController implements ListChangeListener {
 				if (resText.isPresent()) {
 					textBox.appendText(resText.get());
 				}
+				
+				treeView.setEditable(false);
+				lastItem = x;
 			}
 		}
 	}
@@ -345,7 +344,6 @@ public class OutLinerViewController implements ListChangeListener {
 
 		root = newItem;
 		treeView.setRoot(root);
-		lastItem = newItem;
 	}
 
 	public void addNode(DataItem item, UUID parentId) {
@@ -367,7 +365,6 @@ public class OutLinerViewController implements ListChangeListener {
 			if(foundParent != null) 
 			{
 				foundParent.getChildren().add(treeItem);
-				lastItem = treeItem;
 			}
 		}
 	}
@@ -432,9 +429,11 @@ public class OutLinerViewController implements ListChangeListener {
 
 			if (!res.isEmpty()) {
 				TreeItem<ExtTreeItem> parentFound = res.get(0).getParent();
-				if (parentId != null) {
+				
+				if(parentFound != null) {
 					parentFound.getChildren().remove(res.get(0));
-				} else {
+				}
+				else {
 					clearRoot();
 				}
 			}
