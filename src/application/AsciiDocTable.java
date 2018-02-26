@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import HolLib.NodeColor;
 import application.model.DataItemExt;
 
 public class AsciiDocTable implements Export {
@@ -15,7 +16,7 @@ public class AsciiDocTable implements Export {
 	final static int ROW_LIMIT = 15;
 	
 	boolean checkWhitelist(String text) {
-		String[] whitelist = { "A1", "V1", "R1" };
+		String[] whitelist = { "A1", "V1", "R1", "W1" };
 
 		for (String entry : whitelist) {
 			if (text.contains(entry)) {
@@ -26,6 +27,46 @@ public class AsciiDocTable implements Export {
 		return false;
 	}
 
+	String convertColor(NodeColor color) {
+		
+		String res = "NotDef";
+		
+		switch (color) {
+			case Black:
+				res = "NotDef";
+				break;
+			case Blue:
+				res = "Okay";
+				break;
+			case Cyan:
+				res = "Train";
+				break;
+			case Default:
+				res = "NotDef";
+				break;
+			case Green:
+				res = "Ready";
+				break;
+			case Magenta:
+				res = "Check";
+				break;
+			case Red:
+				res = "TODO";
+				break;
+			case White:
+				res = "NotDef";
+				break;
+			case Yellow:
+				res = "Good";
+				break;
+			default:
+				res = "NotDef";
+				break;
+		}
+		
+		return res;
+	}
+	
 	int getBlocks(String text) {
 		int cnt = 0;
 		boolean lastLineContrainText = false;
@@ -82,7 +123,7 @@ public class AsciiDocTable implements Export {
 	
 	int export(BufferedWriter bw, List<List<String>> exportData,int startIdx, int maxRows, int maxColums) throws IOException {
 		
-		bw.write("[width=\"15%\"]\n");
+		bw.write("[width=\"95%\"]\n");
 		bw.write("|=======\n");
 		
 		for(int cnt = startIdx; cnt < (startIdx + maxRows); cnt++) {
@@ -127,6 +168,7 @@ public class AsciiDocTable implements Export {
 
 				for (int i = 1; i <= blocks; i++) {
 					List<String> line = new ArrayList<>();
+					line.add(convertColor(item.getItemColor()));
 					line.add(getParentName(data,idx));
 					line.add(item.getTitle());
 					List<String> block = getBlock(i, item.getItemText());
