@@ -6,6 +6,7 @@ import java.util.List;
 
 import HolLib.HolLibIF;
 import HolLib.HolLibImpl;
+import application.AnkiExport;
 import application.AsciiDocTable;
 import application.CsvExport;
 import application.JsonExport;
@@ -81,7 +82,7 @@ public class RootLayoutController {
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("Markdown", "*.md"));
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("CSV special", "*.csv"));
 		fileChooser.getExtensionFilters().add(new ExtensionFilter("Asciidoc table special", "*.adoc"));
-		
+		fileChooser.getExtensionFilters().add(new ExtensionFilter("Anki", "*.txt"));
 		
 		File selectedFile = fileChooser.showSaveDialog(mainApp.getPrimaryStage());
 		if (selectedFile != null) {
@@ -109,6 +110,12 @@ public class RootLayoutController {
 			if(selectedFile.getPath().contains(".adoc")) 
 			{
 				AsciiDocTable mdExport = new AsciiDocTable();
+				mdExport.export(selectedFile.getPath(), data);
+			}
+			
+			if(selectedFile.getPath().contains(".txt")) 
+			{
+				AnkiExport mdExport = new AnkiExport();
 				mdExport.export(selectedFile.getPath(), data);
 			}
 						
