@@ -13,20 +13,6 @@ import application.model.DataItemExt;
 public class CsvExport implements Export{
 
 	
-	boolean checkWhitelist(String text)
-	{
-		String[] whitelist = {"A1","V1","R1"};
-		
-		for(String entry : whitelist) {
-			if(text.contains(entry)) 
-			{
-				return true;
-			}
-		}
-		
-		return false;
-	}
-	
 	int getBlocks(String text) 
 	{
 		int cnt = 0;
@@ -93,7 +79,7 @@ public class CsvExport implements Export{
 
 		for(DataItemExt item : data) {
 			
-			if(checkWhitelist(item.getItemText())) 
+			if(WhiteList.checkWhitelist(item.getItemText())) 
 			{
 				int blocks = getBlocks(item.getItemText());
 				

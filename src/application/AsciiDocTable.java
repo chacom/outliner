@@ -14,18 +14,7 @@ public class AsciiDocTable implements Export {
 
 	final static int ROW_LIMIT = 15;
 	
-	boolean checkWhitelist(String text) {
-		String[] whitelist = { "A1", "V1", "R1" };
-
-		for (String entry : whitelist) {
-			if (text.contains(entry)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
+	
 	int getBlocks(String text) {
 		int cnt = 0;
 		boolean lastLineContrainText = false;
@@ -122,7 +111,7 @@ public class AsciiDocTable implements Export {
 		for (int idx = 0; idx < data.size(); idx++) {
 			DataItemExt item = data.get(idx);
 			
-			if (checkWhitelist(item.getItemText())) {
+			if (WhiteList.checkWhitelist(item.getItemText())) {
 				int blocks = getBlocks(item.getItemText());
 
 				for (int i = 1; i <= blocks; i++) {

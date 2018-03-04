@@ -13,18 +13,6 @@ import application.model.DataItemExt;
 public class AnkiExport implements Export {
 
 	
-	boolean checkWhitelist(String text) {
-		String[] whitelist = { "A1", "V1", "R1", "W1" };
-
-		for (String entry : whitelist) {
-			if (text.contains(entry)) {
-				return true;
-			}
-		}
-
-		return false;
-	}
-
 	int getBlocks(String text) {
 		int cnt = 0;
 		boolean lastLineContrainText = false;
@@ -102,16 +90,34 @@ public class AnkiExport implements Export {
 		for (int idx = 0; idx < data.size(); idx++) {
 			DataItemExt item = data.get(idx);
 			
-			if (checkWhitelist(item.getItemText())) {
+			if (WhiteList.checkWhitelist(item.getItemText())) {
 				int blocks = getBlocks(item.getItemText());
 
+				List<String> addLater = new ArrayList<>();
+				int cnt = 1;
 				for (int i = 1; i <= blocks; i++) {
 					List<String> line = new ArrayList<>();
-					line.add(getParentName(data,idx) + " " + item.getTitle() + " " + i);
+
 					List<String> block = getBlock(i, item.getItemText());
-					line.addAll(block);
-					exportData.add(line);
+					
+					if(!WhiteList.checkWhitelist(block)) 
+					{
+						int tmp = blocks + cnt + i;
+						line.add(getParentName(data,idx) + " " + item.getTitle() + " E" + tmp);
+						line.addAll(block);
+						addLater.addAll(line);
+					}
+					else {
+						line.add(getParentName(data,idx) + " " + item.getTitle() + " " + cnt);
+						line.addAll(block);
+						exportData.add(line);
+						cnt++;
+					}
+					
 				}
+				
+				exportData.add(addLater);
+				
 			}
 		}
 		
